@@ -50,6 +50,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | sabre2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2025h2 [WIP] |
 | sabre2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h1 [^noissuer] |
 | sabre2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h2 [^noissuer] |
+| halloumi2026h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h2/ |
 
 If you archive a log, please submit a pull request to add it to this table.
 
