@@ -1,0 +1,88 @@
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2018 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2019 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2020 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2021 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2022 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2022_2 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_yeti2023   // done
+https://ct.googleapis.com/logs/eu1/mirrors/letsencrypt_oak2019 // done
+https://ct.googleapis.com/logs/eu1/mirrors/letsencrypt_oak2020 // done
+https://ct.googleapis.com/logs/eu1/mirrors/letsencrypt_oak2021 // done
+https://ct.googleapis.com/logs/eu1/mirrors/letsencrypt_oak2022 // done
+https://ct.googleapis.com/logs/eu1/mirrors/letsencrypt_oak2023 // done
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_wyvern2024h1
+https://ct.googleapis.com/logs/eu1/mirrors/digicert_wyvern2024h2
+https://ct.googleapis.com/logs/us1/mirrors/cloudflare_nimbus2022 // done
+https://ct.googleapis.com/logs/us1/mirrors/cloudflare_nimbus2023 // done
+https://ct.googleapis.com/logs/us1/mirrors/cloudflare_nimbus2024 // done
+https://ct.googleapis.com/logs/us1/mirrors/comodo_mammoth // done
+https://ct.googleapis.com/logs/us1/mirrors/comodo_sabre   // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_ct1   // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_ct2   // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_nessie2018 // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_nessie2019 // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_nessie2020 // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_nessie2021 // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_nessie2022 // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_nessie2023 // done
+https://ct.googleapis.com/logs/us1/mirrors/symantec_ct       // done
+https://ct.googleapis.com/logs/us1/mirrors/symantec_sirius   // done
+https://ct.googleapis.com/logs/us1/mirrors/symantec_vega     // done
+https://ct.googleapis.com/logs/us1/mirrors/venafi_ctlog_gen2 // done
+https://ct.googleapis.com/logs/us1/mirrors/sectigo_mammoth2024h1 // done
+https://ct.googleapis.com/logs/us1/mirrors/sectigo_mammoth2024h2 // downloading
+https://ct.googleapis.com/logs/us1/mirrors/sectigo_sabre2024h1   // done
+https://ct.googleapis.com/logs/us1/mirrors/sectigo_sabre2024h2 https://sabre2024h2.ct.sectigo.com/
+https://ct.googleapis.com/logs/us1/mirrors/digicert_sphinx2024h1 // done
+https://ct.googleapis.com/logs/us1/mirrors/digicert_sphinx2024h2 // done
+
+https://oak.ct.letsencrypt.org/2025h1/ letsencrypt_oak2025h1
+https://oak.ct.letsencrypt.org/2025h2/ letsencrypt_oak2025h2
+https://oak.ct.letsencrypt.org/2026h1/ letsencrypt_oak2026h1
+https://oak.ct.letsencrypt.org/2026h2/ letsencrypt_oak2026h2
+
+https://yeti2025.ct.digicert.com/log/ digicert_yeti2025
+https://nessie2025.ct.digicert.com/log/ digicert_nessie2025
+https://wyvern.ct.digicert.com/2025h1/ digicert_wyvern2025h1
+https://sphinx.ct.digicert.com/2025h1/ digicert_sphinx2025h1
+https://ct2024.trustasia.com/log2024/ trustasia_log2024
+https://mammoth2025h2.ct.sectigo.com/ sectigo_mammoth2025h2  // done
+https://mammoth2026h1.ct.sectigo.com/ sectigo_mammoth2026h1  // done
+https://mammoth2026h2.ct.sectigo.com/ sectigo_mammoth2026h2  // done
+https://sabre2025h2.ct.sectigo.com/ sectigo_sabre2025h2      // downloading
+https://sabre2026h1.ct.sectigo.com/ sectigo_sabre2026h1      // done
+https://sabre2026h2.ct.sectigo.com/ sectigo_sabre2026h2      // done
+
+cloudflare_nimbus2018   https://ct.cloudflare.com/logs/nimbus2018/
+cloudflare_nimbus2019   https://ct.cloudflare.com/logs/nimbus2019/
+cloudflare_nimbus2020   https://ct.cloudflare.com/logs/nimbus2020/
+cloudflare_nimbus2021   https://ct.cloudflare.com/logs/nimbus2021/
+sectigo_sabre2025h1     https://sabre2025h1.ct.sectigo.com/
+sectigo_mammoth2025h1   https://mammoth2025h1.ct.sectigo.com/
+sectigo_mammoth2024h1b  https://mammoth2024h1b.ct.sectigo.com/
+digicert_yeti2024       https://yeti2024.ct.digicert.com/log/
+digicert_nessie2024     https://nessie2024.ct.digicert.com/log/
+letsencrypt_oak2024h1   https://oak.ct.letsencrypt.org/2024h1/
+letsencrypt_oak2024h2   https://oak.ct.letsencrypt.org/2024h2/
+trustasia_log2020       https://ct.trustasia.com/log2020/
+trustasia_log2021_2     https://ct2021.trustasia.com/log2021/
+trustasia_log2021       https://ct.trustasia.com/log2021/
+trustasia_log2022       https://ct.trustasia.com/log2022/
+trustasia_log2023       https://ct.trustasia.com/log2023/
+certly_log              https://log.certly.io/
+izenpe_ct               https://ct.izenpe.com/
+wosign_ctlog            https://ctlog.wosign.com/
+wosign_ct               https://ct.wosign.com/
+venafi_ctlog            https://ctlog.api.venafi.com/
+cnnic_ctserver          https://ctserver.cnnic.cn/
+startssl_ct             https://ct.startssl.com/
+puchuangsida_ct         https://www.certificatetransparency.cn/ct/
+ctlogsorg_alpha         https://alpha.ctlogs.org/
+
+
+zfs create tank/archive/$LOG && cd /tank/archive/$LOG
+curl -sSL https://www.gstatic.com/ct/log_list/v3/all_logs_list.json | jq ".operators[].logs[] | select(.url == \"$URL\") | del(.state, .mmd)" | tee log.v3.json
+vanity-mirror "${MIRROR:-$URL}" && photocamera-archiver && ia upload --metadata="collection:opensource_media" ct_$LOG archive/*.zip
+cd ..; zfs destroy tank/archive/$LOG
+uv run --script cmd/photocamera-archiver/ia-metadata.py ct_$LOG
+
