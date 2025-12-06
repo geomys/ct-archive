@@ -5,52 +5,52 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 
 ## Archived Logs
 
-| Log Origin | Archive Location |
-|------------|------------------|
-| ct.cloudflare.com/logs/nimbus2022 | https://archive.org/details/ct_cloudflare_nimbus2022 † |
-| ct.cloudflare.com/logs/nimbus2023 | https://archive.org/details/ct_cloudflare_nimbus2023 † |
-| ct.cloudflare.com/logs/nimbus2024 | https://archive.org/details/ct_cloudflare_nimbus2024 † |
-| ct1.digicert-ct.com/log | https://archive.org/details/ct_digicert_ct1 † |
-| ct2.digicert-ct.com/log | https://archive.org/details/ct_digicert_ct2 † |
-| yeti2018.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2018 † |
-| yeti2019.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2019 † |
-| yeti2020.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2020 † |
-| yeti2021.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2021 † |
-| yeti2022.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2022 † |
-| yeti2022-2.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2022_2 † |
-| yeti2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2023 † |
-| nessie2018.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2018 † |
-| nessie2019.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2019 † |
-| nessie2020.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2020 † |
-| nessie2021.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2021 † |
-| nessie2022.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2022 † |
-| nessie2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2023 † |
-| sphinx.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_sphinx2024h1 |
-| sphinx.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_sphinx2024h2 |
-| wyvern.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_wyvern2024h1 |
-| wyvern.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_wyvern2024h2 |
-| ct.ws.symantec.com | https://archive.org/details/ct_symantec_ct † |
-| vega.ws.symantec.com | https://archive.org/details/ct_symantec_vega † |
-| sirius.ws.symantec.com | https://archive.org/details/ct_symantec_sirius † |
-| ctlog-gen2.api.venafi.com | https://archive.org/details/ct_venafi_ctlog_gen2 † |
-| oak.ct.letsencrypt.org/2019 | https://archive.org/details/ct_letsencrypt_oak2019 † |
-| oak.ct.letsencrypt.org/2020 | https://archive.org/details/ct_letsencrypt_oak2020 † |
-| oak.ct.letsencrypt.org/2021 | https://archive.org/details/ct_letsencrypt_oak2021 † |
-| oak.ct.letsencrypt.org/2022 | https://archive.org/details/ct_letsencrypt_oak2022 † |
-| oak.ct.letsencrypt.org/2023 | https://archive.org/details/ct_letsencrypt_oak2023 † |
-| sabre.ct.comodo.com | https://archive.org/details/ct_comodo_sabre † |
-| mammoth.ct.comodo.com | https://archive.org/details/ct_comodo_mammoth † |
-| mammoth2024h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2024h1 |
-| mammoth2024h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2024h2 |
-| mammoth2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2025h2 |
-| mammoth2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2026h1 † |
-| mammoth2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2026h2 † |
-| sabre2024h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2024h1 |
-| sabre2024h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2024h2 |
-| sabre2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2025h2 |
-| sabre2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h1 † |
-| sabre2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h2 † |
-| ct2024.trustasia.com/log2024 | https://archive.org/details/ct_trustasia_log2024 |
+| Log Origin | Archive Location |  |
+|------------|------------------|--|
+| ct.cloudflare.com/logs/nimbus2022 | https://archive.org/details/ct_cloudflare_nimbus2022 † | [.torrent](https://archive.org/download/ct_cloudflare_nimbus2022/ct_cloudflare_nimbus2022_archive.torrent) |
+| ct.cloudflare.com/logs/nimbus2023 | https://archive.org/details/ct_cloudflare_nimbus2023 † | [.torrent](https://archive.org/download/ct_cloudflare_nimbus2023/ct_cloudflare_nimbus2023_archive.torrent) |
+| ct.cloudflare.com/logs/nimbus2024 | https://archive.org/details/ct_cloudflare_nimbus2024 † | [.torrent](https://archive.org/download/ct_cloudflare_nimbus2024/ct_cloudflare_nimbus2024_archive.torrent) |
+| ct1.digicert-ct.com/log | https://archive.org/details/ct_digicert_ct1 † | [.torrent](https://archive.org/download/ct_digicert_ct1/ct_digicert_ct1_archive.torrent) |
+| ct2.digicert-ct.com/log | https://archive.org/details/ct_digicert_ct2 † | [.torrent](https://archive.org/download/ct_digicert_ct2/ct_digicert_ct2_archive.torrent) |
+| yeti2018.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2018 † | [.torrent](https://archive.org/download/ct_digicert_yeti2018/ct_digicert_yeti2018_archive.torrent) |
+| yeti2019.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2019 † | [.torrent](https://archive.org/download/ct_digicert_yeti2019/ct_digicert_yeti2019_archive.torrent) |
+| yeti2020.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2020 † | [.torrent](https://archive.org/download/ct_digicert_yeti2020/ct_digicert_yeti2020_archive.torrent) |
+| yeti2021.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2021 † | [.torrent](https://archive.org/download/ct_digicert_yeti2021/ct_digicert_yeti2021_archive.torrent) |
+| yeti2022.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2022 † | [.torrent](https://archive.org/download/ct_digicert_yeti2022/ct_digicert_yeti2022_archive.torrent) |
+| yeti2022-2.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2022_2 † | [.torrent](https://archive.org/download/ct_digicert_yeti2022_2/ct_digicert_yeti2022_2_archive.torrent) |
+| yeti2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2023 † | [.torrent](https://archive.org/download/ct_digicert_yeti2023/ct_digicert_yeti2023_archive.torrent) |
+| nessie2018.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2018 † | [.torrent](https://archive.org/download/ct_digicert_nessie2018/ct_digicert_nessie2018_archive.torrent) |
+| nessie2019.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2019 † | [.torrent](https://archive.org/download/ct_digicert_nessie2019/ct_digicert_nessie2019_archive.torrent) |
+| nessie2020.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2020 † | [.torrent](https://archive.org/download/ct_digicert_nessie2020/ct_digicert_nessie2020_archive.torrent) |
+| nessie2021.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2021 † | [.torrent](https://archive.org/download/ct_digicert_nessie2021/ct_digicert_nessie2021_archive.torrent) |
+| nessie2022.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2022 † | [.torrent](https://archive.org/download/ct_digicert_nessie2022/ct_digicert_nessie2022_archive.torrent) |
+| nessie2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2023 † | [.torrent](https://archive.org/download/ct_digicert_nessie2023/ct_digicert_nessie2023_archive.torrent) |
+| sphinx.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_sphinx2024h1 | [.torrent](https://archive.org/download/ct_digicert_sphinx2024h1/ct_digicert_sphinx2024h1_archive.torrent) |
+| sphinx.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_sphinx2024h2 | [.torrent](https://archive.org/download/ct_digicert_sphinx2024h2/ct_digicert_sphinx2024h2_archive.torrent) |
+| wyvern.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_wyvern2024h1 | [.torrent](https://archive.org/download/ct_digicert_wyvern2024h1/ct_digicert_wyvern2024h1_archive.torrent) |
+| wyvern.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_wyvern2024h2 | [.torrent](https://archive.org/download/ct_digicert_wyvern2024h2/ct_digicert_wyvern2024h2_archive.torrent) |
+| ct.ws.symantec.com | https://archive.org/details/ct_symantec_ct † | [.torrent](https://archive.org/download/ct_symantec_ct/ct_symantec_ct_archive.torrent) |
+| vega.ws.symantec.com | https://archive.org/details/ct_symantec_vega † | [.torrent](https://archive.org/download/ct_symantec_vega/ct_symantec_vega_archive.torrent) |
+| sirius.ws.symantec.com | https://archive.org/details/ct_symantec_sirius † | [.torrent](https://archive.org/download/ct_symantec_sirius/ct_symantec_sirius_archive.torrent) |
+| ctlog-gen2.api.venafi.com | https://archive.org/details/ct_venafi_ctlog_gen2 † | [.torrent](https://archive.org/download/ct_venafi_ctlog_gen2/ct_venafi_ctlog_gen2_archive.torrent) |
+| oak.ct.letsencrypt.org/2019 | https://archive.org/details/ct_letsencrypt_oak2019 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2019/ct_letsencrypt_oak2019_archive.torrent) |
+| oak.ct.letsencrypt.org/2020 | https://archive.org/details/ct_letsencrypt_oak2020 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2020/ct_letsencrypt_oak2020_archive.torrent) |
+| oak.ct.letsencrypt.org/2021 | https://archive.org/details/ct_letsencrypt_oak2021 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2021/ct_letsencrypt_oak2021_archive.torrent) |
+| oak.ct.letsencrypt.org/2022 | https://archive.org/details/ct_letsencrypt_oak2022 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2022/ct_letsencrypt_oak2022_archive.torrent) |
+| oak.ct.letsencrypt.org/2023 | https://archive.org/details/ct_letsencrypt_oak2023 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2023/ct_letsencrypt_oak2023_archive.torrent) |
+| sabre.ct.comodo.com | https://archive.org/details/ct_comodo_sabre † | [.torrent](https://archive.org/download/ct_comodo_sabre/ct_comodo_sabre_archive.torrent) |
+| mammoth.ct.comodo.com | https://archive.org/details/ct_comodo_mammoth † | [.torrent](https://archive.org/download/ct_comodo_mammoth/ct_comodo_mammoth_archive.torrent) |
+| mammoth2024h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2024h1 | [.torrent](https://archive.org/download/ct_sectigo_mammoth2024h1/ct_sectigo_mammoth2024h1_archive.torrent) |
+| mammoth2024h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2024h2 | [.torrent](https://archive.org/download/ct_sectigo_mammoth2024h2/ct_sectigo_mammoth2024h2_archive.torrent) |
+| mammoth2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2025h2 | [.torrent](https://archive.org/download/ct_sectigo_mammoth2025h2/ct_sectigo_mammoth2025h2_archive.torrent) |
+| mammoth2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2026h1 † | [.torrent](https://archive.org/download/ct_sectigo_mammoth2026h1/ct_sectigo_mammoth2026h1_archive.torrent) |
+| mammoth2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2026h2 † | [.torrent](https://archive.org/download/ct_sectigo_mammoth2026h2/ct_sectigo_mammoth2026h2_archive.torrent) |
+| sabre2024h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2024h1 | [.torrent](https://archive.org/download/ct_sectigo_sabre2024h1/ct_sectigo_sabre2024h1_archive.torrent) |
+| sabre2024h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2024h2 | [.torrent](https://archive.org/download/ct_sectigo_sabre2024h2/ct_sectigo_sabre2024h2_archive.torrent) |
+| sabre2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2025h2 | [.torrent](https://archive.org/download/ct_sectigo_sabre2025h2/ct_sectigo_sabre2025h2_archive.torrent) |
+| sabre2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h1 † | [.torrent](https://archive.org/download/ct_sectigo_sabre2026h1/ct_sectigo_sabre2026h1_archive.torrent) |
+| sabre2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h2 † | [.torrent](https://archive.org/download/ct_sectigo_sabre2026h2/ct_sectigo_sabre2026h2_archive.torrent) |
+| ct2024.trustasia.com/log2024 | https://archive.org/details/ct_trustasia_log2024 | [.torrent](https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent) |
 | halloumi2026h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h2/ |
 
 † *These logs were mistakenly archived without the `issuer/` directory.*
