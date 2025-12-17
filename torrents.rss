@@ -5,7 +5,6 @@
     <link>https://github.com/geomys/ct-archive</link>
     <description>Torrent files for archived Certificate Transparency logs</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Dec 2025 15:50:27 +0000</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/geomys/ct-archive/main/torrents.rss" rel="self" type="application/rss+xml" />
     <item>
       <title>ct.cloudflare.com/logs/nimbus2022</title>
