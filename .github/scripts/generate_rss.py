@@ -3,7 +3,6 @@
 
 import re
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -49,10 +48,6 @@ def generate_rss(entries: list[tuple[str, str, str]], output_path: str) -> None:
 
     language = ET.SubElement(channel, 'language')
     language.text = 'en-us'
-
-    # Last build date
-    last_build = ET.SubElement(channel, 'lastBuildDate')
-    last_build.text = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 
     # Self-referencing atom:link
     atom_link = ET.SubElement(channel, '{http://www.w3.org/2005/Atom}link')
