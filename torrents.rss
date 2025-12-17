@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>CT Log Archive Torrents</title>
+    <link>https://github.com/geomys/ct-archive</link>
+    <description>Torrent files for archived Certificate Transparency logs</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Dec 2025 15:42:12 +0000</lastBuildDate>
+    <atom:link href="https://raw.githubusercontent.com/geomys/ct-archive/main/torrents.rss" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ct.cloudflare.com/logs/nimbus2022</title>
+      <link>https://archive.org/details/ct_cloudflare_nimbus2022</link>
+      <description>Torrent archive for CT log: ct.cloudflare.com/logs/nimbus2022</description>
+      <enclosure url="https://archive.org/download/ct_cloudflare_nimbus2022/ct_cloudflare_nimbus2022_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_cloudflare_nimbus2022/ct_cloudflare_nimbus2022_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ct.cloudflare.com/logs/nimbus2023</title>
+      <link>https://archive.org/details/ct_cloudflare_nimbus2023</link>
+      <description>Torrent archive for CT log: ct.cloudflare.com/logs/nimbus2023</description>
+      <enclosure url="https://archive.org/download/ct_cloudflare_nimbus2023/ct_cloudflare_nimbus2023_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_cloudflare_nimbus2023/ct_cloudflare_nimbus2023_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ct.cloudflare.com/logs/nimbus2024</title>
+      <link>https://archive.org/details/ct_cloudflare_nimbus2024</link>
+      <description>Torrent archive for CT log: ct.cloudflare.com/logs/nimbus2024</description>
+      <enclosure url="https://archive.org/download/ct_cloudflare_nimbus2024/ct_cloudflare_nimbus2024_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_cloudflare_nimbus2024/ct_cloudflare_nimbus2024_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ct1.digicert-ct.com/log</title>
+      <link>https://archive.org/details/ct_digicert_ct1</link>
+      <description>Torrent archive for CT log: ct1.digicert-ct.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_ct1/ct_digicert_ct1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_ct1/ct_digicert_ct1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ct2.digicert-ct.com/log</title>
+      <link>https://archive.org/details/ct_digicert_ct2</link>
+      <description>Torrent archive for CT log: ct2.digicert-ct.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_ct2/ct_digicert_ct2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_ct2/ct_digicert_ct2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2018.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2018</link>
+      <description>Torrent archive for CT log: yeti2018.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2018/ct_digicert_yeti2018_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2018/ct_digicert_yeti2018_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2019.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2019</link>
+      <description>Torrent archive for CT log: yeti2019.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2019/ct_digicert_yeti2019_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2019/ct_digicert_yeti2019_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2020.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2020</link>
+      <description>Torrent archive for CT log: yeti2020.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2020/ct_digicert_yeti2020_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2020/ct_digicert_yeti2020_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2021.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2021</link>
+      <description>Torrent archive for CT log: yeti2021.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2021/ct_digicert_yeti2021_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2021/ct_digicert_yeti2021_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2022.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2022</link>
+      <description>Torrent archive for CT log: yeti2022.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2022/ct_digicert_yeti2022_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2022/ct_digicert_yeti2022_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2022-2.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2022_2</link>
+      <description>Torrent archive for CT log: yeti2022-2.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2022_2/ct_digicert_yeti2022_2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2022_2/ct_digicert_yeti2022_2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>yeti2023.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_yeti2023</link>
+      <description>Torrent archive for CT log: yeti2023.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_yeti2023/ct_digicert_yeti2023_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_yeti2023/ct_digicert_yeti2023_archive.torrent</guid>
+    </item>
+    <item>
+      <title>nessie2018.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_nessie2018</link>
+      <description>Torrent archive for CT log: nessie2018.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_nessie2018/ct_digicert_nessie2018_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_nessie2018/ct_digicert_nessie2018_archive.torrent</guid>
+    </item>
+    <item>
+      <title>nessie2019.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_nessie2019</link>
+      <description>Torrent archive for CT log: nessie2019.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_nessie2019/ct_digicert_nessie2019_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_nessie2019/ct_digicert_nessie2019_archive.torrent</guid>
+    </item>
+    <item>
+      <title>nessie2020.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_nessie2020</link>
+      <description>Torrent archive for CT log: nessie2020.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_nessie2020/ct_digicert_nessie2020_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_nessie2020/ct_digicert_nessie2020_archive.torrent</guid>
+    </item>
+    <item>
+      <title>nessie2021.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_nessie2021</link>
+      <description>Torrent archive for CT log: nessie2021.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_nessie2021/ct_digicert_nessie2021_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_nessie2021/ct_digicert_nessie2021_archive.torrent</guid>
+    </item>
+    <item>
+      <title>nessie2022.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_nessie2022</link>
+      <description>Torrent archive for CT log: nessie2022.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_nessie2022/ct_digicert_nessie2022_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_nessie2022/ct_digicert_nessie2022_archive.torrent</guid>
+    </item>
+    <item>
+      <title>nessie2023.ct.digicert.com/log</title>
+      <link>https://archive.org/details/ct_digicert_nessie2023</link>
+      <description>Torrent archive for CT log: nessie2023.ct.digicert.com/log</description>
+      <enclosure url="https://archive.org/download/ct_digicert_nessie2023/ct_digicert_nessie2023_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_nessie2023/ct_digicert_nessie2023_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sphinx.ct.digicert.com/2024h1</title>
+      <link>https://archive.org/details/ct_digicert_sphinx2024h1</link>
+      <description>Torrent archive for CT log: sphinx.ct.digicert.com/2024h1</description>
+      <enclosure url="https://archive.org/download/ct_digicert_sphinx2024h1/ct_digicert_sphinx2024h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_sphinx2024h1/ct_digicert_sphinx2024h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sphinx.ct.digicert.com/2024h2</title>
+      <link>https://archive.org/details/ct_digicert_sphinx2024h2</link>
+      <description>Torrent archive for CT log: sphinx.ct.digicert.com/2024h2</description>
+      <enclosure url="https://archive.org/download/ct_digicert_sphinx2024h2/ct_digicert_sphinx2024h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_sphinx2024h2/ct_digicert_sphinx2024h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>wyvern.ct.digicert.com/2024h1</title>
+      <link>https://archive.org/details/ct_digicert_wyvern2024h1</link>
+      <description>Torrent archive for CT log: wyvern.ct.digicert.com/2024h1</description>
+      <enclosure url="https://archive.org/download/ct_digicert_wyvern2024h1/ct_digicert_wyvern2024h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_wyvern2024h1/ct_digicert_wyvern2024h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>wyvern.ct.digicert.com/2024h2</title>
+      <link>https://archive.org/details/ct_digicert_wyvern2024h2</link>
+      <description>Torrent archive for CT log: wyvern.ct.digicert.com/2024h2</description>
+      <enclosure url="https://archive.org/download/ct_digicert_wyvern2024h2/ct_digicert_wyvern2024h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_digicert_wyvern2024h2/ct_digicert_wyvern2024h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ct.ws.symantec.com</title>
+      <link>https://archive.org/details/ct_symantec_ct</link>
+      <description>Torrent archive for CT log: ct.ws.symantec.com</description>
+      <enclosure url="https://archive.org/download/ct_symantec_ct/ct_symantec_ct_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_symantec_ct/ct_symantec_ct_archive.torrent</guid>
+    </item>
+    <item>
+      <title>vega.ws.symantec.com</title>
+      <link>https://archive.org/details/ct_symantec_vega</link>
+      <description>Torrent archive for CT log: vega.ws.symantec.com</description>
+      <enclosure url="https://archive.org/download/ct_symantec_vega/ct_symantec_vega_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_symantec_vega/ct_symantec_vega_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sirius.ws.symantec.com</title>
+      <link>https://archive.org/details/ct_symantec_sirius</link>
+      <description>Torrent archive for CT log: sirius.ws.symantec.com</description>
+      <enclosure url="https://archive.org/download/ct_symantec_sirius/ct_symantec_sirius_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_symantec_sirius/ct_symantec_sirius_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ctlog-gen2.api.venafi.com</title>
+      <link>https://archive.org/details/ct_venafi_ctlog_gen2</link>
+      <description>Torrent archive for CT log: ctlog-gen2.api.venafi.com</description>
+      <enclosure url="https://archive.org/download/ct_venafi_ctlog_gen2/ct_venafi_ctlog_gen2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_venafi_ctlog_gen2/ct_venafi_ctlog_gen2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>oak.ct.letsencrypt.org/2019</title>
+      <link>https://archive.org/details/ct_letsencrypt_oak2019</link>
+      <description>Torrent archive for CT log: oak.ct.letsencrypt.org/2019</description>
+      <enclosure url="https://archive.org/download/ct_letsencrypt_oak2019/ct_letsencrypt_oak2019_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_letsencrypt_oak2019/ct_letsencrypt_oak2019_archive.torrent</guid>
+    </item>
+    <item>
+      <title>oak.ct.letsencrypt.org/2020</title>
+      <link>https://archive.org/details/ct_letsencrypt_oak2020</link>
+      <description>Torrent archive for CT log: oak.ct.letsencrypt.org/2020</description>
+      <enclosure url="https://archive.org/download/ct_letsencrypt_oak2020/ct_letsencrypt_oak2020_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_letsencrypt_oak2020/ct_letsencrypt_oak2020_archive.torrent</guid>
+    </item>
+    <item>
+      <title>oak.ct.letsencrypt.org/2021</title>
+      <link>https://archive.org/details/ct_letsencrypt_oak2021</link>
+      <description>Torrent archive for CT log: oak.ct.letsencrypt.org/2021</description>
+      <enclosure url="https://archive.org/download/ct_letsencrypt_oak2021/ct_letsencrypt_oak2021_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_letsencrypt_oak2021/ct_letsencrypt_oak2021_archive.torrent</guid>
+    </item>
+    <item>
+      <title>oak.ct.letsencrypt.org/2022</title>
+      <link>https://archive.org/details/ct_letsencrypt_oak2022</link>
+      <description>Torrent archive for CT log: oak.ct.letsencrypt.org/2022</description>
+      <enclosure url="https://archive.org/download/ct_letsencrypt_oak2022/ct_letsencrypt_oak2022_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_letsencrypt_oak2022/ct_letsencrypt_oak2022_archive.torrent</guid>
+    </item>
+    <item>
+      <title>oak.ct.letsencrypt.org/2023</title>
+      <link>https://archive.org/details/ct_letsencrypt_oak2023</link>
+      <description>Torrent archive for CT log: oak.ct.letsencrypt.org/2023</description>
+      <enclosure url="https://archive.org/download/ct_letsencrypt_oak2023/ct_letsencrypt_oak2023_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_letsencrypt_oak2023/ct_letsencrypt_oak2023_archive.torrent</guid>
+    </item>
+    <item>
+      <title>oak.ct.letsencrypt.org/2025h1</title>
+      <link>https://archive.org/details/ct_letsencrypt_oak2025h1</link>
+      <description>Torrent archive for CT log: oak.ct.letsencrypt.org/2025h1</description>
+      <enclosure url="https://archive.org/download/ct_letsencrypt_oak2025h1/ct_letsencrypt_oak2025h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_letsencrypt_oak2025h1/ct_letsencrypt_oak2025h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sabre.ct.comodo.com</title>
+      <link>https://archive.org/details/ct_comodo_sabre</link>
+      <description>Torrent archive for CT log: sabre.ct.comodo.com</description>
+      <enclosure url="https://archive.org/download/ct_comodo_sabre/ct_comodo_sabre_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_comodo_sabre/ct_comodo_sabre_archive.torrent</guid>
+    </item>
+    <item>
+      <title>mammoth.ct.comodo.com</title>
+      <link>https://archive.org/details/ct_comodo_mammoth</link>
+      <description>Torrent archive for CT log: mammoth.ct.comodo.com</description>
+      <enclosure url="https://archive.org/download/ct_comodo_mammoth/ct_comodo_mammoth_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_comodo_mammoth/ct_comodo_mammoth_archive.torrent</guid>
+    </item>
+    <item>
+      <title>mammoth2024h1.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_mammoth2024h1</link>
+      <description>Torrent archive for CT log: mammoth2024h1.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_mammoth2024h1/ct_sectigo_mammoth2024h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_mammoth2024h1/ct_sectigo_mammoth2024h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>mammoth2024h2.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_mammoth2024h2</link>
+      <description>Torrent archive for CT log: mammoth2024h2.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_mammoth2024h2/ct_sectigo_mammoth2024h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_mammoth2024h2/ct_sectigo_mammoth2024h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>mammoth2025h2.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_mammoth2025h2</link>
+      <description>Torrent archive for CT log: mammoth2025h2.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_mammoth2025h2/ct_sectigo_mammoth2025h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_mammoth2025h2/ct_sectigo_mammoth2025h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>mammoth2026h1.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_mammoth2026h1</link>
+      <description>Torrent archive for CT log: mammoth2026h1.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_mammoth2026h1/ct_sectigo_mammoth2026h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_mammoth2026h1/ct_sectigo_mammoth2026h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>mammoth2026h2.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_mammoth2026h2</link>
+      <description>Torrent archive for CT log: mammoth2026h2.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_mammoth2026h2/ct_sectigo_mammoth2026h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_mammoth2026h2/ct_sectigo_mammoth2026h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sabre2024h1.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_sabre2024h1</link>
+      <description>Torrent archive for CT log: sabre2024h1.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_sabre2024h1/ct_sectigo_sabre2024h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_sabre2024h1/ct_sectigo_sabre2024h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sabre2024h2.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_sabre2024h2</link>
+      <description>Torrent archive for CT log: sabre2024h2.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_sabre2024h2/ct_sectigo_sabre2024h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_sabre2024h2/ct_sectigo_sabre2024h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sabre2025h2.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_sabre2025h2</link>
+      <description>Torrent archive for CT log: sabre2025h2.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_sabre2025h2/ct_sectigo_sabre2025h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_sabre2025h2/ct_sectigo_sabre2025h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sabre2026h1.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_sabre2026h1</link>
+      <description>Torrent archive for CT log: sabre2026h1.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_sabre2026h1/ct_sectigo_sabre2026h1_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_sabre2026h1/ct_sectigo_sabre2026h1_archive.torrent</guid>
+    </item>
+    <item>
+      <title>sabre2026h2.ct.sectigo.com</title>
+      <link>https://archive.org/details/ct_sectigo_sabre2026h2</link>
+      <description>Torrent archive for CT log: sabre2026h2.ct.sectigo.com</description>
+      <enclosure url="https://archive.org/download/ct_sectigo_sabre2026h2/ct_sectigo_sabre2026h2_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_sectigo_sabre2026h2/ct_sectigo_sabre2026h2_archive.torrent</guid>
+    </item>
+    <item>
+      <title>ct2024.trustasia.com/log2024</title>
+      <link>https://archive.org/details/ct_trustasia_log2024</link>
+      <description>Torrent archive for CT log: ct2024.trustasia.com/log2024</description>
+      <enclosure url="https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent</guid>
+    </item>
+  </channel>
+</rss>
