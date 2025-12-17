@@ -58,6 +58,8 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 
 If you archive a log, please submit a pull request to add it to this table.
 
+To help seed the torrent files, you can use [this feed](https://raw.githubusercontent.com/geomys/ct-archive/main/torrents.rss) 📡
+
 A very comprehensive list of CT logs can be found at https://sslmate.com/app/ctlogs.
 
 ## Archival Format
