@@ -69,13 +69,14 @@ def lint_item(log_origin: str, item_id: str) -> list[str]:
     if not cturl:
         errors.append("Missing 'cturl' metadata")
 
-    # Check 3: Collection is opensource_media
+    # Check 3: Collection is one of the allowed collections
+    allowed_collections = {"opensource_media", "datasets", "datasets_unsorted"}
     collection = metadata.get("collection", [])
     if isinstance(collection, str):
         collection = [collection]
-    if "opensource_media" not in collection:
+    if not any(c in allowed_collections for c in collection):
         errors.append(
-            f"Collection should be 'opensource_media' (has: {collection})"
+            f"Collection should be one of {allowed_collections} (has: {collection})"
         )
 
     # Check 4: Number of zip files matches ceil(ctlogsize / 256^3)
