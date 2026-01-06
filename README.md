@@ -38,7 +38,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | oak.ct.letsencrypt.org/2021 | https://archive.org/details/ct_letsencrypt_oak2021 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2021/ct_letsencrypt_oak2021_archive.torrent) |
 | oak.ct.letsencrypt.org/2022 | https://archive.org/details/ct_letsencrypt_oak2022 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2022/ct_letsencrypt_oak2022_archive.torrent) |
 | oak.ct.letsencrypt.org/2023 | https://archive.org/details/ct_letsencrypt_oak2023 † | [.torrent](https://archive.org/download/ct_letsencrypt_oak2023/ct_letsencrypt_oak2023_archive.torrent) |
-| oak.ct.letsencrypt.org/2025h1 | https://archive.org/details/ct_letsencrypt_oak2025h1 | [.torrent](https://archive.org/download/ct_letsencrypt_oak2025h1/ct_letsencrypt_oak2025h1_archive.torrent) |
+| oak.ct.letsencrypt.org/2025h1 | https://archive.org/details/ct_letsencrypt_oak2025h1 |
 | sabre.ct.comodo.com | https://archive.org/details/ct_comodo_sabre † | [.torrent](https://archive.org/download/ct_comodo_sabre/ct_comodo_sabre_archive.torrent) |
 | mammoth.ct.comodo.com | https://archive.org/details/ct_comodo_mammoth † | [.torrent](https://archive.org/download/ct_comodo_mammoth/ct_comodo_mammoth_archive.torrent) |
 | mammoth2024h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_mammoth2024h1 | [.torrent](https://archive.org/download/ct_sectigo_mammoth2024h1/ct_sectigo_mammoth2024h1_archive.torrent) |
