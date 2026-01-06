@@ -20,27 +20,28 @@ import requests
 from internetarchive import get_item
 
 
-def extract_ia_entries(readme_path: str) -> list[tuple[str, str]]:
+def extract_ia_entries(readme_path: str) -> list[tuple[str, str, bool]]:
     """Extract Internet Archive entries from README.md.
 
-    Returns list of (log_origin, item_identifier) tuples.
+    Returns list of (log_origin, item_identifier, has_torrent) tuples.
     """
     content = Path(readme_path).read_text()
     entries = []
 
-    # Match table rows with archive.org URLs
-    # Format: | log_origin | https://archive.org/details/item_id ... |
-    pattern = r'\|\s*([^\|]+?)\s*\|\s*https://archive\.org/details/(\S+?)\s'
+    # Match table rows with archive.org URLs, optionally with torrent links
+    # Format: | log_origin | https://archive.org/details/item_id ... | [.torrent](...) |
+    pattern = r'\|\s*([^\|]+?)\s*\|\s*https://archive\.org/details/(\S+?)\s[^\|]*\|([^\n]*)'
 
     for match in re.finditer(pattern, content):
         log_origin = match.group(1).strip()
         item_id = match.group(2).strip()
-        entries.append((log_origin, item_id))
+        has_torrent = ".torrent" in match.group(3)
+        entries.append((log_origin, item_id, has_torrent))
 
     return entries
 
 
-def lint_item(log_origin: str, item_id: str) -> list[str]:
+def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
     """Lint a single Internet Archive item.
 
     Returns a list of error messages (empty if all checks pass).
@@ -190,7 +191,10 @@ def lint_item(log_origin: str, item_id: str) -> list[str]:
         else:
             errors.append("No zip files found in item")
 
-    # Check 6: Verify torrent file is not partial
+    # Check 6: Verify torrent file is not partial (only if torrent link exists in README)
+    if not has_torrent:
+        return errors
+
     torrent_url = f"https://archive.org/download/{item_id}/{item_id}_archive.torrent"
     try:
         resp = requests.get(torrent_url, timeout=30)
@@ -243,9 +247,9 @@ def main():
     print(f"Found {len(entries)} Internet Archive entries")
 
     all_passed = True
-    for log_origin, item_id in entries:
+    for log_origin, item_id, has_torrent in entries:
         print(f"\nLinting {item_id} ({log_origin})...")
-        errors = lint_item(log_origin, item_id)
+        errors = lint_item(log_origin, item_id, has_torrent)
 
         if errors:
             all_passed = False
