@@ -209,13 +209,13 @@ def lint_item(log_origin: str, item_id: str) -> list[str]:
                 # Single-file torrent
                 torrent_files.add(info[b"name"].decode())
 
-            # Get original files from IA item (exclude derived files)
+            # Get original files from IA item (exclude derived files and _files.xml)
             ia_files = set()
             for f in item.files:
                 source = f.get("source", "")
                 name = f.get("name", "")
-                # Only check original files, not derived ones
-                if source == "original" and name:
+                # Only check original files, not derived ones or _files.xml metadata
+                if source == "original" and name and not name.endswith("_files.xml"):
                     ia_files.add(name)
 
             # Check for missing files
