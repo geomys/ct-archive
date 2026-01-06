@@ -19,6 +19,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | yeti2022.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2022 † | [.torrent](https://archive.org/download/ct_digicert_yeti2022/ct_digicert_yeti2022_archive.torrent) |
 | yeti2022-2.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2022_2 † | [.torrent](https://archive.org/download/ct_digicert_yeti2022_2/ct_digicert_yeti2022_2_archive.torrent) |
 | yeti2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2023 † | [.torrent](https://archive.org/download/ct_digicert_yeti2023/ct_digicert_yeti2023_archive.torrent) |
+| yeti2025.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2025   | [.torrent](https://archive.org/download/ct_digicert_yeti2025/ct_digicert_yeti2025_archive.torrent) |
 | nessie2018.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2018 † | [.torrent](https://archive.org/download/ct_digicert_nessie2018/ct_digicert_nessie2018_archive.torrent) |
 | nessie2019.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2019 † | [.torrent](https://archive.org/download/ct_digicert_nessie2019/ct_digicert_nessie2019_archive.torrent) |
 | nessie2020.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2020 † | [.torrent](https://archive.org/download/ct_digicert_nessie2020/ct_digicert_nessie2020_archive.torrent) |
@@ -27,8 +28,10 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | nessie2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2023 † | [.torrent](https://archive.org/download/ct_digicert_nessie2023/ct_digicert_nessie2023_archive.torrent) |
 | sphinx.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_sphinx2024h1 | [.torrent](https://archive.org/download/ct_digicert_sphinx2024h1/ct_digicert_sphinx2024h1_archive.torrent) |
 | sphinx.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_sphinx2024h2 | [.torrent](https://archive.org/download/ct_digicert_sphinx2024h2/ct_digicert_sphinx2024h2_archive.torrent) |
+| sphinx.ct.digicert.com/2025h1 | https://archive.org/details/ct_digicert_sphinx2025h1 | [.torrent](https://archive.org/download/ct_digicert_sphinx2025h1/ct_digicert_sphinx2025h1_archive.torrent) |
 | wyvern.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_wyvern2024h1 | [.torrent](https://archive.org/download/ct_digicert_wyvern2024h1/ct_digicert_wyvern2024h1_archive.torrent) |
 | wyvern.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_wyvern2024h2 | [.torrent](https://archive.org/download/ct_digicert_wyvern2024h2/ct_digicert_wyvern2024h2_archive.torrent) |
+| wyvern.ct.digicert.com/2025h1 | https://archive.org/details/ct_digicert_wyvern2025h1 | [.torrent](https://archive.org/download/ct_digicert_wyvern2025h1/ct_digicert_wyvern2025h1_archive.torrent) |
 | ct.ws.symantec.com | https://archive.org/details/ct_symantec_ct † | [.torrent](https://archive.org/download/ct_symantec_ct/ct_symantec_ct_archive.torrent) |
 | vega.ws.symantec.com | https://archive.org/details/ct_symantec_vega † | [.torrent](https://archive.org/download/ct_symantec_vega/ct_symantec_vega_archive.torrent) |
 | sirius.ws.symantec.com | https://archive.org/details/ct_symantec_sirius † | [.torrent](https://archive.org/download/ct_symantec_sirius/ct_symantec_sirius_archive.torrent) |
@@ -58,7 +61,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 
 If you archive a log, please submit a pull request to add it to this table.
 
-To help seed the torrent files, you can use [this feed](https://raw.githubusercontent.com/geomys/ct-archive/main/torrents.rss) 📡 The whole archive weighs approximately 10TB.
+To help seed the torrent files, you can use [this feed](https://raw.githubusercontent.com/geomys/ct-archive/main/torrents.rss) 📡 The whole archive weighs approximately 12TB.
 
 A very comprehensive list of CT logs can be found at https://sslmate.com/app/ctlogs.
 
