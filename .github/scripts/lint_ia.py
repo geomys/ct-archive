@@ -2,6 +2,7 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
+#     "bencodepy",
 #     "internetarchive",
 #     "requests",
 # ]
@@ -14,6 +15,7 @@ import re
 import sys
 from pathlib import Path
 
+import bencodepy
 import requests
 from internetarchive import get_item
 
@@ -187,6 +189,49 @@ def lint_item(log_origin: str, item_id: str) -> list[str]:
                 errors.append(f"Failed to fetch checkpoint: {e}")
         else:
             errors.append("No zip files found in item")
+
+    # Check 6: Verify torrent file is not partial
+    torrent_url = f"https://archive.org/download/{item_id}/{item_id}_archive.torrent"
+    try:
+        resp = requests.get(torrent_url, timeout=30)
+        if resp.status_code == 200:
+            torrent_data = bencodepy.decode(resp.content)
+            info = torrent_data.get(b"info", {})
+
+            # Extract files from torrent
+            torrent_files = set()
+            if b"files" in info:
+                # Multi-file torrent
+                for f in info[b"files"]:
+                    path_parts = [p.decode() for p in f[b"path"]]
+                    torrent_files.add("/".join(path_parts))
+            elif b"name" in info:
+                # Single-file torrent
+                torrent_files.add(info[b"name"].decode())
+
+            # Get original files from IA item (exclude derived files)
+            ia_files = set()
+            for f in item.files:
+                source = f.get("source", "")
+                name = f.get("name", "")
+                # Only check original files, not derived ones
+                if source == "original" and name:
+                    ia_files.add(name)
+
+            # Check for missing files
+            missing = ia_files - torrent_files
+            if missing:
+                errors.append(
+                    f"Torrent is missing {len(missing)} files: "
+                    f"{', '.join(sorted(missing)[:5])}"
+                    f"{' ...' if len(missing) > 5 else ''}"
+                )
+        else:
+            errors.append(f"Failed to fetch torrent: HTTP {resp.status_code}")
+    except requests.RequestException as e:
+        errors.append(f"Failed to fetch torrent: {e}")
+    except Exception as e:
+        errors.append(f"Failed to parse torrent: {e}")
 
     return errors
 
