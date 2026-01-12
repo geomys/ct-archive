@@ -8,12 +8,15 @@ package main
 
 import (
 	"archive/zip"
+	"bytes"
+	"compress/gzip"
 	"context"
 	"crypto/sha256"
 	"crypto/x509"
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/fs"
 	"log/slog"
 	"os"
@@ -251,6 +254,13 @@ func main() {
 			data, err := root.ReadFile(path)
 			if err != nil {
 				fatalError(logger, "failed to read tile data", "tile", path, "err", err)
+			}
+			// If the tile is compressed, decompress it.
+			if r, err := gzip.NewReader(bytes.NewReader(data)); err == nil {
+				data, err = io.ReadAll(r)
+				if err != nil {
+					fatalError(logger, "failed to decompress tile data", "tile", path, "err", err)
+				}
 			}
 			if err := verifyTileData(tile, data, hr); err != nil {
 				fatalError(logger, "failed to verify tile data", "tile", path, "err", err)
