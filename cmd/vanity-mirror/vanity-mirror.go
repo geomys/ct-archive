@@ -14,13 +14,11 @@ import (
 	"net"
 	"net/http"
 	_ "net/http/pprof"
-	"net/url"
 	"os"
 	"os/signal"
 	"path/filepath"
 	"strings"
 	"sync"
-	"sync/atomic"
 	"time"
 
 	"filippo.io/sunlight"
@@ -97,55 +95,12 @@ func main() {
 	if len(os.Args) == 2 {
 		baseURL = os.Args[1]
 	}
-	baseURL = strings.TrimSuffix(baseURL, "/")
 	logger.Info("starting mirror", "origin", origin, "base_url", baseURL)
 
-	// Round-robin proxy balancer across 4 tinyproxy servers
-	var proxyCounter atomic.Uint32
-	proxyURLs := []*url.URL{
-		{Scheme: "http", Host: "13.52.242.129:8888"},
-		{Scheme: "http", Host: "54.183.163.76:8888"},
-		{Scheme: "http", Host: "54.177.191.52:8888"},
-		{Scheme: "http", Host: "54.177.62.2:8888"},
-		{Scheme: "http", Host: "52.53.167.237:8888"},
-		{Scheme: "http", Host: "54.193.70.182:8888"},
-		{Scheme: "http", Host: "54.153.118.120:8888"},
-		{Scheme: "http", Host: "54.215.223.24:8888"},
-		{Scheme: "http", Host: "52.53.230.203:8888"},
-		{Scheme: "http", Host: "54.193.12.205:8888"},
-		{Scheme: "http", Host: "52.53.214.93:8888"},
-		{Scheme: "http", Host: "54.151.124.18:8888"},
-		{Scheme: "http", Host: "54.193.233.245:8888"},
-		{Scheme: "http", Host: "18.144.161.108:8888"},
-		{Scheme: "http", Host: "54.151.79.185:8888"},
-		{Scheme: "http", Host: "50.18.22.238:8888"},
-		{Scheme: "http", Host: "52.53.199.154:8888"},
-		{Scheme: "http", Host: "13.57.5.182:8888"},
-		{Scheme: "http", Host: "54.183.155.18:8888"},
-		{Scheme: "http", Host: "54.241.95.20:8888"},
-		{Scheme: "http", Host: "54.153.47.164:8888"},
-		{Scheme: "http", Host: "13.56.115.168:8888"},
-		{Scheme: "http", Host: "3.101.121.242:8888"},
-		{Scheme: "http", Host: "54.241.45.120:8888"},
-		{Scheme: "http", Host: "54.193.246.73:8888"},
-		{Scheme: "http", Host: "54.183.80.8:8888"},
-		{Scheme: "http", Host: "18.144.54.56:8888"},
-		{Scheme: "http", Host: "54.177.227.230:8888"},
-		{Scheme: "http", Host: "54.176.143.157:8888"},
-		{Scheme: "http", Host: "52.53.199.176:8888"},
-		{Scheme: "http", Host: "184.72.15.50:8888"},
-		{Scheme: "http", Host: "54.176.177.94:8888"},
-	}
-	proxyFunc := func(req *http.Request) (*url.URL, error) {
-		idx := proxyCounter.Add(1) - 1
-		return proxyURLs[idx%uint32(len(proxyURLs))], nil
-	}
-
 	client := &http.Client{
-		Timeout: 60 * time.Second,
+		Timeout: 10 * time.Second,
 		Transport: promhttp.InstrumentRoundTripperDuration(duration, &http.Transport{
 			MaxIdleConnsPerHost: 100,
-			Proxy:               proxyFunc,
 			DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
 				dials.Inc()
 				return (&net.Dialer{}).DialContext(ctx, network, addr)
@@ -179,77 +134,58 @@ func main() {
 
 	fetchBatch := func(ctx context.Context, start, end int64) ([]*sunlight.LogEntry, error) {
 		entries := make([]*sunlight.LogEntry, end-start)
-
-		type workItem struct {
-			start int64
-			end   int64
-		}
-
-		// Create work queue
-		workQueue := make(chan workItem, (end-start+63)/64)
-		for i := start; i < end; i += 64 {
-			workQueue <- workItem{start: i, end: min(i+63, end-1)}
-		}
-		close(workQueue)
-
-		// Process work with a worker pool
-		const numWorkers = 512
 		grp, ctx := errgroup.WithContext(ctx)
-		for w := 0; w < numWorkers; w++ {
+		for i := start; i < end; i += 32 {
 			grp.Go(func() error {
-				for item := range workQueue {
-					i := item.start
-					itemEnd := item.end
-					url := fmt.Sprintf("%s/ct/v1/get-entries?start=%d&end=%d", baseURL, i, itemEnd)
-					//fmt.Println(url)
-					req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+				end := min(i+31, end-1)
+				url := fmt.Sprintf("%s/ct/v1/get-entries?start=%d&end=%d", baseURL, i, end)
+				req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+				if err != nil {
+					return err
+				}
+				req.Header.Set("User-Agent", "vanity-mirror/1.0 (+https://geomys.org/ct-archive)")
+				req.Header.Set("Accept", "application/json")
+				var result struct {
+					Entries []struct {
+						LeafInput []byte `json:"leaf_input"`
+						ExtraData []byte `json:"extra_data"`
+					} `json:"entries"`
+				}
+				for {
+					resp, err := client.Do(req)
 					if err != nil {
-						return err
+						return fmt.Errorf("failed to fetch %q: %w", url, err)
 					}
-					req.Header.Set("User-Agent", "vanity-mirror/1.0 (+https://geomys.org/ct-archive)")
-					req.Header.Set("Accept", "application/json")
-					var result struct {
-						Entries []struct {
-							LeafInput []byte `json:"leaf_input"`
-							ExtraData []byte `json:"extra_data"`
-						} `json:"entries"`
-					}
-					for {
-						resp, err := client.Do(req)
-						if err != nil {
-							return fmt.Errorf("failed to fetch %q: %w", url, err)
-						}
-						if resp.StatusCode != http.StatusTooManyRequests {
-							if resp.StatusCode != http.StatusOK {
-								resp.Body.Close()
-								return fmt.Errorf("unexpected status code: %d", resp.StatusCode)
-							}
-							if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-								resp.Body.Close()
-								return fmt.Errorf("failed to decode entries: %w", err)
-							}
-							io.CopyN(io.Discard, resp.Body, 1<<20)
+					if resp.StatusCode != http.StatusTooManyRequests {
+						if resp.StatusCode != http.StatusOK {
 							resp.Body.Close()
-							break
+							return fmt.Errorf("unexpected status code: %d", resp.StatusCode)
 						}
+						if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+							resp.Body.Close()
+							return fmt.Errorf("failed to decode entries: %w", err)
+						}
+						io.CopyN(io.Discard, resp.Body, 1<<20)
 						resp.Body.Close()
-						select {
-						case <-ctx.Done():
-							return ctx.Err()
-						case <-time.After(500 * time.Millisecond):
-						}
+						break
 					}
-					for j, e := range result.Entries {
-						index := i + int64(j)
-						entry, issuers, err := parseLogEntry(e.LeafInput, e.ExtraData)
-						if err != nil {
-							return fmt.Errorf("failed to parse entry %d: %w", index, err)
-						}
-						if err := observeIssuers(issuers, root); err != nil {
-							return fmt.Errorf("failed to observe issuers for entry %d: %w", index, err)
-						}
-						entries[index-start] = entry
+					resp.Body.Close()
+					select {
+					case <-ctx.Done():
+						return ctx.Err()
+					case <-time.After(500 * time.Millisecond):
 					}
+				}
+				for j, e := range result.Entries {
+					index := i + int64(j)
+					entry, issuers, err := parseLogEntry(e.LeafInput, e.ExtraData)
+					if err != nil {
+						return fmt.Errorf("failed to parse entry %d: %w", index, err)
+					}
+					if err := observeIssuers(issuers, root); err != nil {
+						return fmt.Errorf("failed to observe issuers for entry %d: %w", index, err)
+					}
+					entries[index-start] = entry
 				}
 				return nil
 			})
