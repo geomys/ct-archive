@@ -40,7 +40,7 @@ https://wyvern.ct.digicert.com/2024h1/  digicert_wyvern2024h1  // done
 https://ct2024.trustasia.com/log2024/   trustasia_log2024      // done
 https://wyvern.ct.digicert.com/2025h1/  digicert_wyvern2025h1  // done
 https://sphinx.ct.digicert.com/2025h1/  digicert_sphinx2025h1  // done
-https://nessie2025.ct.digicert.com/log/ digicert_nessie2025    881954985
+https://nessie2025.ct.digicert.com/log/ digicert_nessie2025    // done
 https://yeti2025.ct.digicert.com/log/   digicert_yeti2025      // done
 https://mammoth2025h2.ct.sectigo.com/   sectigo_mammoth2025h2  // done
 https://mammoth2026h1.ct.sectigo.com/   sectigo_mammoth2026h1  // done

@@ -26,6 +26,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | nessie2021.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2021 † | [.torrent](https://archive.org/download/ct_digicert_nessie2021/ct_digicert_nessie2021_archive.torrent) |
 | nessie2022.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2022 † | [.torrent](https://archive.org/download/ct_digicert_nessie2022/ct_digicert_nessie2022_archive.torrent) |
 | nessie2023.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2023 † | [.torrent](https://archive.org/download/ct_digicert_nessie2023/ct_digicert_nessie2023_archive.torrent) |
+| nessie2025.ct.digicert.com/log | https://archive.org/details/ct_digicert_nessie2025 |
 | sphinx.ct.digicert.com/2024h1 | https://archive.org/details/ct_digicert_sphinx2024h1 | [.torrent](https://archive.org/download/ct_digicert_sphinx2024h1/ct_digicert_sphinx2024h1_archive.torrent) |
 | sphinx.ct.digicert.com/2024h2 | https://archive.org/details/ct_digicert_sphinx2024h2 | [.torrent](https://archive.org/download/ct_digicert_sphinx2024h2/ct_digicert_sphinx2024h2_archive.torrent) |
 | sphinx.ct.digicert.com/2025h1 | https://archive.org/details/ct_digicert_sphinx2025h1 |
