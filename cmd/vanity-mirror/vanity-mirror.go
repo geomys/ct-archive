@@ -95,6 +95,7 @@ func main() {
 	if len(os.Args) == 2 {
 		baseURL = os.Args[1]
 	}
+	baseURL = strings.TrimSuffix(baseURL, "/")
 	logger.Info("starting mirror", "origin", origin, "base_url", baseURL)
 
 	client := &http.Client{
