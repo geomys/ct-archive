@@ -57,6 +57,8 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | sabre2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h2 † | [.torrent](https://archive.org/download/ct_sectigo_sabre2026h2/ct_sectigo_sabre2026h2_archive.torrent) |
 | ct2024.trustasia.com/log2024 | https://archive.org/details/ct_trustasia_log2024 | [.torrent](https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent) |
 | halloumi2026h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h2/ |
+| halloumi2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2025h2/ |
+| gouda2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/gouda2025h2/ |
 
 † *These logs were mistakenly archived without the `issuer/` directory.*
 
