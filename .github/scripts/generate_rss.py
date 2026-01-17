@@ -6,28 +6,34 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
-def extract_torrent_entries(readme_path: str) -> list[tuple[str, str, str]]:
+def extract_torrent_entries(readme_path: str) -> list[tuple[str, str | None, str]]:
     """Extract torrent entries from README.md.
 
     Returns list of (log_origin, archive_url, torrent_url) tuples.
+    archive_url may be None if the second column is empty or not a https:// link.
     """
     content = Path(readme_path).read_text()
     entries = []
 
     # Match table rows with torrent links
     # Format: | log_origin | archive_url | [.torrent](torrent_url) |
-    pattern = r'\|\s*([^\|]+?)\s*\|\s*(https://[^\s\|]+)\s*[†]?\s*\|\s*\[\.torrent\]\(([^)]+)\)\s*\|'
+    # The second column is optional and may contain any content or be empty
+    pattern = r'\|\s*([^\|]+?)\s*\|\s*([^\|]*?)\s*[†]?\s*\|\s*\[\.torrent\]\(([^)]+)\)\s*\|'
 
     for match in re.finditer(pattern, content):
         log_origin = match.group(1).strip()
-        archive_url = match.group(2).strip()
+        archive_url_raw = match.group(2).strip()
         torrent_url = match.group(3).strip()
+
+        # Only use archive_url if it's a valid https:// link
+        archive_url = archive_url_raw if archive_url_raw.startswith('https://') else None
+
         entries.append((log_origin, archive_url, torrent_url))
 
     return entries
 
 
-def generate_rss(entries: list[tuple[str, str, str]], output_path: str) -> None:
+def generate_rss(entries: list[tuple[str, str | None, str]], output_path: str) -> None:
     """Generate RSS feed from torrent entries."""
     # Register namespace to avoid ns0 prefix
     ET.register_namespace('atom', 'http://www.w3.org/2005/Atom')
@@ -62,8 +68,10 @@ def generate_rss(entries: list[tuple[str, str, str]], output_path: str) -> None:
         item_title = ET.SubElement(item, 'title')
         item_title.text = f'{log_origin}'
 
-        item_link = ET.SubElement(item, 'link')
-        item_link.text = archive_url
+        # Only add item_link if archive_url is a valid https:// link
+        if archive_url is not None:
+            item_link = ET.SubElement(item, 'link')
+            item_link.text = archive_url
 
         item_description = ET.SubElement(item, 'description')
         item_description.text = f'Torrent archive for CT log: {log_origin}'

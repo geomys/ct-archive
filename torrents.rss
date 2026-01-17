@@ -314,5 +314,11 @@
       <enclosure url="https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent" type="application/x-bittorrent" />
       <guid isPermaLink="false">https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent</guid>
     </item>
+    <item>
+      <title>tuscolo2025h2.sunlight.geomys.org</title>
+      <description>Torrent archive for CT log: tuscolo2025h2.sunlight.geomys.org</description>
+      <enclosure url="https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent</guid>
+    </item>
   </channel>
 </rss>
