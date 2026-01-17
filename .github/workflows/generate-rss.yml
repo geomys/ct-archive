@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'README.md'
+      - '.github/scripts/generate_rss.py'
   workflow_dispatch:
 
 permissions:
