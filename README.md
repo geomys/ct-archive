@@ -59,6 +59,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | halloumi2026h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h2/ |
 | halloumi2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2025h2/ |
 | gouda2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/gouda2025h2/ |
+| tuscolo2025h2.sunlight.geomys.org | [magnet:?xt=urn:btih:c63a4c59a35968a5c05dde0b0e4ff4ae9b407bf3](magnet:?xt=urn:btih:c63a4c59a35968a5c05dde0b0e4ff4ae9b407bf3&dn=ct_geomys_tuscolo2025h2&tr=udp://tracker.opentrackr.org:1337/announce) | [.torrent](https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent) |
 
 † *These logs were mistakenly archived without the `issuer/` directory.*
 
@@ -170,3 +171,13 @@ Use `ct_operator_nameYYYYhN` as the item identifier, e.g. `ct_sectigo_sabre2024h
 All items are tagged with the [certificate transparency log][] topic.
 
 [certificate transparency log]: https://archive.org/search?query=subject%3A%22certificate+transparency+log%22&sort=title
+
+### Generating Torrent Files
+
+If not uploading to the Internet Archive (which generates .torrent files), the
+following commands can be used to create a .torrent file for the zip archives.
+
+    NAME=ct_operator_nameYYYYhN
+    curl --proto '=https' --tlsv1.2 -sSf https://imdl.io/install.sh | bash -s -- --to /usr/local/bin
+    imdl torrent create /tank/logs/tuscolo2025h2/data/archive/ --name $NAME --output $NAME.torrent \
+        --announce udp://tracker.opentrackr.org:1337/announce
