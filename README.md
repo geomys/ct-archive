@@ -181,3 +181,12 @@ following commands can be used to create a .torrent file for the zip archives.
     curl --proto '=https' --tlsv1.2 -sSf https://imdl.io/install.sh | bash -s -- --to /usr/local/bin
     imdl torrent create /tank/logs/tuscolo2025h2/data/archive/ --name $NAME --output $NAME.torrent \
         --announce udp://tracker.opentrackr.org:1337/announce
+
+### Seeding the Torrent
+
+The `phosphorescent-seeder` command seeds a single torrent file from existing
+data on disk. It is stateless and memory-safe.
+
+    NAME=ct_operator_nameYYYYhN
+    go run geomys.org/ct-archive/cmd/phosphorescent-seeder@main \
+        -torrent $NAME.torrent -data /tank/logs/tuscolo2025h2/data/archive/
