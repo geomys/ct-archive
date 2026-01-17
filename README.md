@@ -59,7 +59,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | halloumi2026h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h2/ |
 | halloumi2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2025h2/ |
 | gouda2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/gouda2025h2/ |
-| tuscolo2025h2.sunlight.geomys.org | [magnet:?xt=urn:btih:c63a4c59a35968a5c05dde0b0e4ff4ae9b407bf3](magnet:?xt=urn:btih:c63a4c59a35968a5c05dde0b0e4ff4ae9b407bf3&dn=ct_geomys_tuscolo2025h2&tr=udp://tracker.opentrackr.org:1337/announce) | [.torrent](https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent) |
+| tuscolo2025h2.sunlight.geomys.org | *too large for the Internet Archive* | [.torrent](https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent) |
 
 † *These logs were mistakenly archived without the `issuer/` directory.*
 
