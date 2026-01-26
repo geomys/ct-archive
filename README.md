@@ -69,12 +69,24 @@ To help seed the torrent files, you can use [this feed](https://raw.githubuserco
 
 A very comprehensive list of CT logs can be found at https://sslmate.com/app/ctlogs.
 
-## Archival Format
+## Using the Archives
 
-Logs are archived in the [c2sp.org/static-ct-api@v1.0.0][] format, although if
-they were originally served through RFC 6962 APIs, leaves might miss the
-LeafIndex extension. The [sunlight.ReadTileLeafMaybeArchival][] function can
-read both types of leaves.
+[filippo.io/sunlight.Client][] can be used with a `archive+file://` URL to read
+these logs directly from the zip archives, or with a `file://` URL to read the
+unpacked Static CT log.
+
+Alternatively, a third party project, [ct-archive-serve], serves logs over HTTP
+according to the c2sp.org/static-ct-api specification directly from the zip archives.
+
+Finally, [filippo.io/torchwood.TileArchiveFS][] can be used to read files
+directly from the zip archives. See below for the archival format.
+
+Logs are archived in the [c2sp.org/static-ct-api@v1.0.0][] format, but note that
+if they were originally served through RFC 6962 APIs, leaves might miss the
+LeafIndex extension. The [sunlight.ClientConfig.AllowRFC6962ArchivalLeafs][]
+setting or [sunlight.ReadTileLeafMaybeArchival][] function support these leaves.
+
+## Archival Format
 
 The log is split over multiple zip files, each 10-15GB. Archive `<N>.zip`
 contains the tiles at levels -1 (the data entries), 0, 1, and 2 belonging to
@@ -98,18 +110,12 @@ self-verifying:
 * `tile/{0,1,2}/*.p/*` — partial tiles on the right edge of the tree, if any,
   necessary to compute the tree head
 
-[sunlight.ReadTileLeafMaybeArchival]: https://pkg.go.dev/filippo.io/sunlight@v0.6.4-0.20251206201658-6074c64f2bb8#ReadTileLeafMaybeArchival
+[sunlight.ClientConfig.AllowRFC6962ArchivalLeafs]: https://pkg.go.dev/filippo.io/sunlight#ClientConfig.AllowRFC6962ArchivalLeafs
+[sunlight.ReadTileLeafMaybeArchival]: https://pkg.go.dev/filippo.io/sunlight#ReadTileLeafMaybeArchival
 [c2sp.org/static-ct-api@v1.0.0]: https://c2sp.org/static-ct-api@v1.0.0
 [c2sp.org/tlog-checkpoint]: https://c2sp.org/tlog-checkpoint
-
-[filippo.io/sunlight.Client][] can be used with a `archive+file://` URL to read
-these logs directly from the zip archives, or with a `file://` URL to read the
-unpacked Static CT log. You may need to set `ClientConfig.AllowRFC6962ArchivalLeafs`.
-
-Alternatively, [filippo.io/torchwood.TileArchiveFS][] can be used to read files
-directly from the zip archives.
-
-[filippo.io/sunlight.Client]: https://pkg.go.dev/filippo.io/sunlight@v0.6.4-0.20251206201658-6074c64f2bb8#Client
+[ct-archive-serve]: https://github.com/colin-stubbs/ct-archive-serve
+[filippo.io/sunlight.Client]: https://pkg.go.dev/filippo.io/sunlight#Client
 [filippo.io/torchwood.TileArchiveFS]: https://pkg.go.dev/filippo.io/torchwood#TileArchiveFS
 
 ## Tools
