@@ -64,13 +64,20 @@ def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
             f"Missing 'certificate transparency log' topic (has: {subjects})"
         )
 
-    # Check 2: Has ctlogid and cturl metadata
+    # Check 2: Has ctlogid and URL metadata.
+    # RFC 6962 logs have a single cturl/log.v3.json "url" field, while
+    # Static CT logs have separate submission and monitoring URLs.
     ctlogid = metadata.get("ctlogid")
     cturl = metadata.get("cturl")
+    ctsubmissionurl = metadata.get("ctsubmissionurl")
+    ctmonitoringurl = metadata.get("ctmonitoringurl")
     if not ctlogid:
         errors.append("Missing 'ctlogid' metadata")
-    if not cturl:
-        errors.append("Missing 'cturl' metadata")
+    if not cturl and not (ctsubmissionurl and ctmonitoringurl):
+        errors.append(
+            "Missing URL metadata: expected either 'cturl' or both "
+            "'ctsubmissionurl' and 'ctmonitoringurl'"
+        )
 
     # Check 3: Collection is one of the allowed collections
     allowed_collections = {"opensource_media", "datasets", "datasets_unsorted"}
@@ -105,7 +112,7 @@ def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
         errors.append("Missing 'ctlogsize' metadata")
 
     # Check 5: Verify checkpoint and log.v3.json files exist and match metadata
-    if ctlogid or cturl:
+    if ctlogid or cturl or ctsubmissionurl or ctmonitoringurl:
         # Find first zip file to fetch from
         zip_files = sorted(
             f.get("name") for f in item.files if f.get("name", "").endswith(".zip")
@@ -128,14 +135,49 @@ def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
                             f"does not match metadata ctlogid '{ctlogid}'"
                         )
 
-                    # Verify url matches cturl
-                    log_url = log_json.get("url", "").rstrip("/")
-                    metadata_url = (cturl or "").rstrip("/")
-                    if cturl and log_url != metadata_url:
-                        errors.append(
-                            f"log.v3.json url '{log_url}' "
-                            f"does not match metadata cturl '{metadata_url}'"
-                        )
+                    # Verify URL metadata matches log.v3.json.
+                    if cturl:
+                        log_url = log_json.get("url", "").rstrip("/")
+                        metadata_url = cturl.rstrip("/")
+                        if log_url != metadata_url:
+                            errors.append(
+                                f"log.v3.json url '{log_url}' "
+                                f"does not match metadata cturl '{metadata_url}'"
+                            )
+                    else:
+                        log_submission_url = log_json.get(
+                            "submission_url", ""
+                        ).rstrip("/")
+                        metadata_submission_url = (
+                            ctsubmissionurl or ""
+                        ).rstrip("/")
+                        if (
+                            ctsubmissionurl
+                            and log_submission_url != metadata_submission_url
+                        ):
+                            errors.append(
+                                f"log.v3.json submission_url "
+                                f"'{log_submission_url}' does not match "
+                                f"metadata ctsubmissionurl "
+                                f"'{metadata_submission_url}'"
+                            )
+
+                        log_monitoring_url = log_json.get(
+                            "monitoring_url", ""
+                        ).rstrip("/")
+                        metadata_monitoring_url = (
+                            ctmonitoringurl or ""
+                        ).rstrip("/")
+                        if (
+                            ctmonitoringurl
+                            and log_monitoring_url != metadata_monitoring_url
+                        ):
+                            errors.append(
+                                f"log.v3.json monitoring_url "
+                                f"'{log_monitoring_url}' does not match "
+                                f"metadata ctmonitoringurl "
+                                f"'{metadata_monitoring_url}'"
+                            )
                 else:
                     errors.append(
                         f"Failed to fetch log.v3.json: HTTP {resp.status_code}"
@@ -157,13 +199,17 @@ def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
                         checkpoint_origin = lines[0]
                         checkpoint_size = lines[1]
 
-                        # Verify origin matches cturl
-                        if cturl:
-                            expected_origin = cturl.replace("https://", "").rstrip("/")
+                        # Verify origin matches the submission URL (or cturl for
+                        # older RFC 6962 logs).
+                        origin_url = ctsubmissionurl or cturl
+                        if origin_url:
+                            expected_origin = origin_url.replace(
+                                "https://", ""
+                            ).rstrip("/")
                             if checkpoint_origin != expected_origin:
                                 errors.append(
                                     f"checkpoint origin '{checkpoint_origin}' "
-                                    f"does not match cturl '{expected_origin}'"
+                                    f"does not match URL metadata '{expected_origin}'"
                                 )
 
                         # Verify size matches ctlogsize
