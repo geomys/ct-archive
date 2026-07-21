@@ -70,6 +70,9 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | gouda2025h2.log.ct.ipng.ch | https://ct.ipng.ch/archive/gouda2025h2/ |
 | tuscolo2025h2.sunlight.geomys.org | *too large for the Internet Archive* | [.torrent](https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent) |
 | tuscolo2026h1.sunlight.geomys.org | https://archive.org/details/ct_geomys_tuscolo2026h1 |
+| halloumi2026h1.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h1/ | 
+| gouda2026h1.log.ct.ipng.ch | https://ct.ipng.ch/archive/gouda2026h1/ |
+
 
 † *These logs were mistakenly archived without the `issuer/` directory.*
 
