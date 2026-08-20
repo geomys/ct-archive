@@ -61,7 +61,9 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | sabre2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h1 † | [.torrent](https://archive.org/download/ct_sectigo_sabre2026h1/ct_sectigo_sabre2026h1_archive.torrent) |
 | sabre2026h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_sabre2026h2 † | [.torrent](https://archive.org/download/ct_sectigo_sabre2026h2/ct_sectigo_sabre2026h2_archive.torrent) |
 | elephant2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_elephant2025h2 |
+| elephant2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_elephant2026h1 and https://archive.org/details/ct_sectigo_elephant2026h1_ext1 |
 | tiger2025h2.ct.sectigo.com | https://archive.org/details/ct_sectigo_tiger2025h2 |
+| tiger2026h1.ct.sectigo.com | https://archive.org/details/ct_sectigo_tiger2026h1 and https://archive.org/details/ct_sectigo_tiger2026h1_ext1 |
 | ct2025-a.trustasia.com/log2025a | https://archive.org/details/ct_trustasia_log2025a ||
 | ct2025-b.trustasia.com/log2025b | https://archive.org/details/ct_trustasia_log2025b ||
 | ct2024.trustasia.com/log2024 | https://archive.org/details/ct_trustasia_log2024 | [.torrent](https://archive.org/download/ct_trustasia_log2024/ct_trustasia_log2024_archive.torrent) |
