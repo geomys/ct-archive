@@ -181,6 +181,10 @@ files can be uploaded to a new Internet Archive item using the `ia` CLI. The
 `ia-metadata.py` script populates the metadata from the contents of the item.
 
 Use `ct_operator_nameYYYYhN` as the item identifier, e.g. `ct_sectigo_sabre2024h1`.
+If an archive exceeds the Internet Archive item size limit, split it across
+additional items named with consecutive `_extN` suffixes, starting with `_ext1`.
+Run `ia-metadata.py` on every item; it reads the checkpoint and log information
+from the first zip file present, which does not need to be `000.zip`.
 
     uv tool install internetarchive
     ia configure

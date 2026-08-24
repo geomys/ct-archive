@@ -59,9 +59,18 @@ def main():
     item = get_item(identifier)
     metadata = item.metadata
 
-    print("Fetching checkpoint and log info...", file=sys.stderr)
-    checkpoint_url = f"https://archive.org/download/{identifier}/000.zip/checkpoint"
-    log_info_url = f"https://archive.org/download/{identifier}/000.zip/log.v3.json"
+    zip_files = sorted(
+        f.get("name") for f in item.files if f.get("name", "").endswith(".zip")
+    )
+    if not zip_files:
+        print(f"Error: no zip files found in item {identifier}", file=sys.stderr)
+        sys.exit(1)
+    first_zip = zip_files[0]
+
+    print(f"Fetching checkpoint and log info from {first_zip}...", file=sys.stderr)
+    base_url = f"https://archive.org/download/{identifier}/{first_zip}"
+    checkpoint_url = f"{base_url}/checkpoint"
+    log_info_url = f"{base_url}/log.v3.json"
 
     checkpoint_resp = requests.get(checkpoint_url)
     checkpoint_resp.raise_for_status()

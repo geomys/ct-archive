@@ -20,35 +20,77 @@ import requests
 from internetarchive import get_item
 
 
-def extract_ia_entries(readme_path: str) -> list[tuple[str, str, bool]]:
+def extract_ia_entries(readme_path: str) -> list[tuple[str, list[str], bool]]:
     """Extract Internet Archive entries from README.md.
 
-    Returns list of (log_origin, item_identifier, has_torrent) tuples.
+    Returns (log_origin, item_identifiers, has_torrent) tuples. A log may span
+    multiple IA items, with extension items named ``<identifier>_extN``.
     """
     content = Path(readme_path).read_text()
     entries = []
 
-    # Match table rows with archive.org URLs, optionally with torrent links
-    # Format: | log_origin | https://archive.org/details/item_id ... | [.torrent](...) |
-    pattern = r'\|\s*([^\|]+?)\s*\|\s*https://archive\.org/details/(\S+?)\s[^\|]*\|([^\n]*)'
+    for line in content.splitlines():
+        if not line.startswith("|"):
+            continue
 
-    for match in re.finditer(pattern, content):
-        log_origin = match.group(1).strip()
-        item_id = match.group(2).strip()
-        has_torrent = ".torrent" in match.group(3)
-        entries.append((log_origin, item_id, has_torrent))
+        cells = line.split("|")
+        if len(cells) < 4:
+            continue
+
+        log_origin = cells[1].strip()
+        item_ids = re.findall(
+            r"https://archive\.org/details/([^\s|]+)", cells[2]
+        )
+        if not item_ids:
+            continue
+
+        has_torrent = ".torrent" in cells[3]
+        entries.append((log_origin, item_ids, has_torrent))
 
     return entries
 
 
-def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
-    """Lint a single Internet Archive item.
+def lint_item(
+    log_origin: str, item_ids: list[str], has_torrent: bool
+) -> list[str]:
+    """Lint all Internet Archive items for a single log.
 
     Returns a list of error messages (empty if all checks pass).
     """
     errors = []
+    items = [(item_id, get_item(item_id)) for item_id in item_ids]
 
-    item = get_item(item_id)
+    expected_extension_ids = [
+        f"{item_ids[0]}_ext{index}" for index in range(1, len(item_ids))
+    ]
+    if item_ids[1:] != expected_extension_ids:
+        errors.append(
+            "Extension items must be named consecutively: expected "
+            f"{expected_extension_ids}, found {item_ids[1:]}"
+        )
+
+    total_zip_count = sum(
+        1
+        for _, item in items
+        for f in item.files
+        if f.get("name", "").endswith(".zip")
+    )
+
+    for item_id, item in items:
+        item_errors = lint_item_part(
+            log_origin, item_id, item, total_zip_count,
+            has_torrent and item_id == item_ids[0],
+        )
+        errors.extend(f"{item_id}: {error}" for error in item_errors)
+
+    return errors
+
+
+def lint_item_part(
+    log_origin: str, item_id: str, item, total_zip_count: int, has_torrent: bool
+) -> list[str]:
+    """Lint one IA item that is part of a possibly split log archive."""
+    errors = []
     metadata = item.metadata
 
     if not metadata:
@@ -89,22 +131,18 @@ def lint_item(log_origin: str, item_id: str, has_torrent: bool) -> list[str]:
             f"Collection should be one of {allowed_collections} (has: {collection})"
         )
 
-    # Check 4: Number of zip files matches ceil(ctlogsize / 256^3)
+    # Check 4: Number of zip files across all extension items matches
+    # ceil(ctlogsize / 256^3).
     ctlogsize = metadata.get("ctlogsize")
     if ctlogsize:
         try:
             ctlogsize = int(ctlogsize)
             expected_zips = math.ceil(ctlogsize / (256**3))
 
-            # Count zip files in item
-            zip_count = sum(
-                1 for f in item.files if f.get("name", "").endswith(".zip")
-            )
-
-            if zip_count != expected_zips:
+            if total_zip_count != expected_zips:
                 errors.append(
-                    f"Expected {expected_zips} zip files based on ctlogsize "
-                    f"{ctlogsize}, found {zip_count}"
+                    f"Expected {expected_zips} zip files across all items based on "
+                    f"ctlogsize {ctlogsize}, found {total_zip_count}"
                 )
         except ValueError:
             errors.append(f"Invalid ctlogsize value: {ctlogsize}")
@@ -293,9 +331,9 @@ def main():
     print(f"Found {len(entries)} Internet Archive entries")
 
     all_passed = True
-    for log_origin, item_id, has_torrent in entries:
-        print(f"\nLinting {item_id} ({log_origin})...")
-        errors = lint_item(log_origin, item_id, has_torrent)
+    for log_origin, item_ids, has_torrent in entries:
+        print(f"\nLinting {', '.join(item_ids)} ({log_origin})...")
+        errors = lint_item(log_origin, item_ids, has_torrent)
 
         if errors:
             all_passed = False
