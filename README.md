@@ -181,6 +181,10 @@ files can be uploaded to a new Internet Archive item using the `ia` CLI. The
 `ia-metadata.py` script populates the metadata from the contents of the item.
 
 Use `ct_operator_nameYYYYhN` as the item identifier, e.g. `ct_sectigo_sabre2024h1`.
+For a split archive, use the base identifier for the first item and consecutive
+`_extN` suffixes for the rest, for example `ct_sectigo_elephant2026h1`,
+`ct_sectigo_elephant2026h1_ext1`, and `ct_sectigo_elephant2026h1_ext2`. Run
+`ia-metadata.py` on every item.
 
     uv tool install internetarchive
     ia configure
