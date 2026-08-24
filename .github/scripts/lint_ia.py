@@ -20,11 +20,11 @@ import requests
 from internetarchive import get_item
 
 
-def extract_ia_entries(readme_path: str) -> list[tuple[str, list[str], bool]]:
+def extract_ia_entries(readme_path: str) -> list[tuple[str, list[str], bool, str]]:
     """Extract Internet Archive entries from README.md.
 
-    Returns (log_origin, item_identifiers, has_torrent) tuples. A log may span
-    multiple IA items, with extension items named ``<identifier>_extN``.
+    Returns (log_origin, item_identifiers, has_torrent, archive_location)
+    tuples.
     """
     content = Path(readme_path).read_text()
     entries = []
@@ -38,20 +38,24 @@ def extract_ia_entries(readme_path: str) -> list[tuple[str, list[str], bool]]:
             continue
 
         log_origin = cells[1].strip()
+        archive_location = cells[2].strip()
         item_ids = re.findall(
-            r"https://archive\.org/details/([^\s|]+)", cells[2]
+            r"https://archive\.org/details/([^\s|]+)", archive_location
         )
         if not item_ids:
             continue
 
         has_torrent = ".torrent" in cells[3]
-        entries.append((log_origin, item_ids, has_torrent))
+        entries.append((log_origin, item_ids, has_torrent, archive_location))
 
     return entries
 
 
 def lint_item(
-    log_origin: str, item_ids: list[str], has_torrent: bool
+    log_origin: str,
+    item_ids: list[str],
+    has_torrent: bool,
+    archive_location: str,
 ) -> list[str]:
     """Lint all Internet Archive items for a single log.
 
@@ -59,6 +63,15 @@ def lint_item(
     """
     errors = []
     items = [(item_id, get_item(item_id)) for item_id in item_ids]
+
+    expected_archive_location = " ".join(
+        f"https://archive.org/details/{item_id}" for item_id in item_ids
+    )
+    actual_archive_location = archive_location.removesuffix(" †")
+    if actual_archive_location != expected_archive_location:
+        errors.append(
+            f"Archive location should be '{expected_archive_location}'"
+        )
 
     expected_extension_ids = [
         f"{item_ids[0]}_ext{index}" for index in range(1, len(item_ids))
@@ -156,7 +169,17 @@ def lint_item_part(
             f.get("name") for f in item.files if f.get("name", "").endswith(".zip")
         )
         if zip_files:
-            first_zip = zip_files[0]
+            if re.search(r"_ext[1-9]\d*$", item_id):
+                first_zip = zip_files[0]
+            elif "000.zip" in zip_files:
+                first_zip = "000.zip"
+            else:
+                errors.append("No 000.zip found in base item")
+                first_zip = None
+
+            if first_zip is None:
+                return errors
+
             base_url = f"https://archive.org/download/{item_id}/{first_zip}"
 
             # Fetch and verify log.v3.json
@@ -331,9 +354,11 @@ def main():
     print(f"Found {len(entries)} Internet Archive entries")
 
     all_passed = True
-    for log_origin, item_ids, has_torrent in entries:
+    for log_origin, item_ids, has_torrent, archive_location in entries:
         print(f"\nLinting {', '.join(item_ids)} ({log_origin})...")
-        errors = lint_item(log_origin, item_ids, has_torrent)
+        errors = lint_item(
+            log_origin, item_ids, has_torrent, archive_location
+        )
 
         if errors:
             all_passed = False

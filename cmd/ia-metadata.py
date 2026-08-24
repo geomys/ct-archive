@@ -16,7 +16,9 @@ Make sure you've configured the ia CLI first with: ia configure.
 Run the script with: uv run --script cmd/photocamera-archiver/ia-metadata.py <IDENTIFIER>
 """
 
+import re
 import sys
+
 import requests
 from internetarchive import get_item, modify_metadata
 
@@ -62,13 +64,19 @@ def main():
     zip_files = sorted(
         f.get("name") for f in item.files if f.get("name", "").endswith(".zip")
     )
-    if not zip_files:
-        print(f"Error: no zip files found in item {identifier}", file=sys.stderr)
+    if re.search(r"_ext[1-9]\d*$", identifier):
+        if not zip_files:
+            print(f"Error: no zip files found in item {identifier}", file=sys.stderr)
+            sys.exit(1)
+        metadata_zip = zip_files[0]
+    elif "000.zip" in zip_files:
+        metadata_zip = "000.zip"
+    else:
+        print(f"Error: no 000.zip found in base item {identifier}", file=sys.stderr)
         sys.exit(1)
-    first_zip = zip_files[0]
 
-    print(f"Fetching checkpoint and log info from {first_zip}...", file=sys.stderr)
-    base_url = f"https://archive.org/download/{identifier}/{first_zip}"
+    print(f"Fetching checkpoint and log info from {metadata_zip}...", file=sys.stderr)
+    base_url = f"https://archive.org/download/{identifier}/{metadata_zip}"
     checkpoint_url = f"{base_url}/checkpoint"
     log_info_url = f"{base_url}/log.v3.json"
 
