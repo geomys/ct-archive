@@ -4,8 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/mod/sumdb/tlog"
 	"math"
 	"net/http"
+	"net/url"
 	"regexp"
 	"slices"
 	"strconv"
@@ -46,11 +48,14 @@ func (s iaStrings) first() string {
 }
 
 type iaFile struct {
-	Name   string `json:"name"`
-	Source string `json:"source"`
+	Name   string          `json:"name"`
+	Source string          `json:"source"`
+	Size   json.RawMessage `json:"size"`
 }
 
 type iaItem struct {
+	Server   string          `json:"server"`
+	Dir      string          `json:"dir"`
 	Metadata json.RawMessage `json:"metadata"`
 	Files    []iaFile        `json:"files"`
 }
@@ -113,24 +118,140 @@ func lintIA(client *http.Client, e entry) []string {
 			}
 		}
 	}
+	missingInventory := false
 	for i, id := range ids {
 		if fetchErrors[i] != nil {
 			errors = append(errors, fmt.Sprintf("%s: %v", id, fetchErrors[i]))
-			continue
+			missingInventory = true
 		}
-		torrentURL := ""
-		// IA's torrent covers only the base item, not its extension items.
-		if i == 0 {
-			torrentURL = e.torrentURL
-		}
-		for _, diagnostic := range lintIAPart(client, id, items[i], totalZips, torrentURL) {
+	}
+	// An unavailable inventory is not evidence that its ZIPs are missing.
+	if missingInventory {
+		return errors
+	}
+	for i, id := range ids {
+		for _, diagnostic := range lintIAPart(id, items[i], totalZips) {
 			errors = append(errors, id+": "+diagnostic)
 		}
 	}
+
+	// Resolve numbered ZIPs across all parts and require exact, unique names.
+	zipOwners := make(map[string]int)
+	for i, item := range items {
+		for _, file := range item.Files {
+			if !strings.HasSuffix(file.Name, ".zip") {
+				continue
+			}
+			if _, exists := zipOwners[file.Name]; exists {
+				errors = append(errors, "Duplicate ZIP across IA items: "+file.Name)
+			}
+			zipOwners[file.Name] = i
+		}
+	}
+	rootOwner, ok := zipOwners["000.zip"]
+	if !ok || rootOwner != 0 {
+		return append(errors, "No 000.zip found in base item")
+	}
+	rootRead := iaFiles(client, items[0], ids[0], "000.zip")
+	info, cp, issues := readArchiveMetadata(rootRead, e.origin)
+	if len(issues) != 0 {
+		return append(errors, issues...)
+	}
+	n := zipCount(cp.Size)
+	if n > 1000 {
+		return append(errors, fmt.Sprintf("checkpoint implies %d ZIPs; at most 1000 supported", n))
+	}
+	for i := int64(0); i < n; i++ {
+		name := fmt.Sprintf("%03d.zip", i)
+		if _, ok := zipOwners[name]; !ok {
+			errors = append(errors, "Missing ZIP: "+name)
+		}
+	}
+	for name := range zipOwners {
+		index, err := strconv.ParseInt(strings.TrimSuffix(name, ".zip"), 10, 64)
+		if err != nil || index < 0 || index >= n || name != fmt.Sprintf("%03d.zip", index) {
+			errors = append(errors, "Unexpected ZIP: "+name)
+		}
+	}
+	readers := make(map[int64]fileReader)
+	openZip := func(index int64) (fileReader, error) {
+		if read := readers[index]; read != nil {
+			return read, nil
+		}
+		name := fmt.Sprintf("%03d.zip", index)
+		owner, ok := zipOwners[name]
+		if !ok {
+			return nil, fmt.Errorf("missing %s", name)
+		}
+		read := iaFiles(client, items[owner], ids[owner], name)
+		zi, zc := info, cp
+		var issues []string
+		if index != 0 {
+			zi, zc, issues = readArchiveMetadata(read, e.origin)
+			issues = append(issues, compareArchiveMetadata(zi, zc, info, cp)...)
+		}
+		var metadata iaMetadata
+		if err := json.Unmarshal(items[owner].Metadata, &metadata); err != nil {
+			return nil, err
+		}
+		id := metadata.LogID.first()
+		expected := logInfo{LogID: &id, URL: metadata.URL.first(), SubmissionURL: metadata.SubmissionURL.first(), MonitoringURL: metadata.MonitoringURL.first()}
+		issues = append(issues, compareLogInfo(zi, expected, true)...)
+		if size, present, err := iaLogSize(metadata.LogSize); err == nil && present && size != zc.Size {
+			issues = append(issues, fmt.Sprintf("checkpoint size %d does not match IA ctlogsize %d", zc.Size, size))
+		}
+		if len(issues) != 0 {
+			return nil, fmt.Errorf("%s: %s", ids[owner], strings.Join(issues, "; "))
+		}
+		readers[index] = read
+		return read, nil
+	}
+	// Check the first ZIP in every IA part, plus the ZIPs selected by the tile
+	// samples. Full checkpoints and log metadata must agree across copies.
+	for i, item := range items {
+		var names []string
+		for _, file := range item.Files {
+			if strings.HasSuffix(file.Name, ".zip") {
+				names = append(names, file.Name)
+			}
+		}
+		slices.Sort(names)
+		if len(names) == 0 {
+			errors = append(errors, ids[i]+": No zip files found in item")
+			continue
+		}
+		index, err := strconv.ParseInt(strings.TrimSuffix(names[0], ".zip"), 10, 64)
+		if err != nil || index < 0 || index >= n {
+			continue
+		}
+		if _, err := openZip(index); err != nil {
+			errors = append(errors, fmt.Sprintf("%s: %v", names[0], err))
+		}
+	}
+	errors = append(errors, e.checkStage("tiles", func() []string {
+		return lintTileSamples(openZip, tlog.Tree{N: cp.Size, Hash: cp.Hash}, e.allowMissingIssuers)
+	})...)
+	// IA's torrent covers originals in the base item, not its extensions.
+	objects := make(map[string]int64)
+	for _, file := range items[0].Files {
+		if file.Source != "original" || file.Name == "" || strings.HasSuffix(file.Name, "_files.xml") {
+			continue
+		}
+		var number json.Number
+		err := json.Unmarshal(file.Size, &number)
+		size, sizeErr := number.Int64()
+		if err != nil || sizeErr != nil || size < 0 {
+			errors = append(errors, "Invalid IA file size for "+file.Name)
+			size = -1
+		}
+		objects[file.Name] = size
+	}
+	errors = append(errors, e.checkStage("torrent metadata", func() []string { return lintTorrentObjects(client, e.torrentURL, objects) })...)
+
 	return errors
 }
 
-func lintIAPart(client *http.Client, id string, item iaItem, totalZips int, torrentURL string) []string {
+func lintIAPart(id string, item iaItem, totalZips int) []string {
 	var fields map[string]json.RawMessage
 	if err := json.Unmarshal(item.Metadata, &fields); err != nil && len(item.Metadata) != 0 {
 		return []string{fmt.Sprintf("Invalid JSON in metadata: %v", err)}
@@ -185,44 +306,7 @@ func lintIAPart(client *http.Client, id string, item iaItem, totalZips int, torr
 		}
 	}
 
-	if logID != "" || ctURL != "" || submissionURL != "" || monitoringURL != "" {
-		var zips []string
-		for _, file := range item.Files {
-			if strings.HasSuffix(file.Name, ".zip") {
-				zips = append(zips, file.Name)
-			}
-		}
-		slices.Sort(zips)
-		if len(zips) == 0 {
-			errors = append(errors, "No zip files found in item")
-		} else {
-			firstZip := zips[0]
-			if !iaExtensionPattern.MatchString(id) {
-				if !slices.Contains(zips, "000.zip") {
-					// The Python linter also returns before checking the torrent.
-					return append(errors, "No 000.zip found in base item")
-				}
-				firstZip = "000.zip"
-			}
-			baseURL := "https://archive.org/download/" + id + "/" + firstZip
-			expected := logInfo{
-				LogID: &logID, URL: ctURL, SubmissionURL: submissionURL, MonitoringURL: monitoringURL,
-			}
-			var expectedSize *int64
-			if present && sizeErr == nil && logSize != 0 {
-				expectedSize = &logSize
-			}
-			errors = append(errors, lintMetadata(httpFiles(client, baseURL), expected, expectedSize)...)
-		}
-	}
-
-	var originalFiles []string
-	for _, file := range item.Files {
-		if file.Source == "original" && file.Name != "" && !strings.HasSuffix(file.Name, "_files.xml") {
-			originalFiles = append(originalFiles, file.Name)
-		}
-	}
-	return append(errors, lintTorrent(client, torrentURL, originalFiles)...)
+	return errors
 }
 
 // iaLogSize preserves integer precision for both JSON integers and strings.
@@ -257,4 +341,18 @@ func iaLogSize(raw json.RawMessage) (size int64, present bool, err error) {
 	}
 	// Zero as a number is false in Python, while the string "0" is true.
 	return size, size != 0, nil
+}
+
+// The metadata API identifies the item's serving host and directory. Use its
+// extraction endpoint directly instead of asking archive.org to redirect every
+// small member request. Retain the public download URL if those fields are absent.
+func iaFiles(client *http.Client, item iaItem, id, zipName string) fileReader {
+	if !strings.HasSuffix(item.Server, ".archive.org") || strings.ContainsAny(item.Server, "/:@?# \t\r\n") ||
+		!strings.HasPrefix(item.Dir, "/") || !strings.HasSuffix(item.Dir, "/items/"+id) {
+		return httpFiles(client, "https://archive.org/download/"+id+"/"+zipName)
+	}
+	return func(name string) ([]byte, error) {
+		query := url.Values{"archive": {item.Dir + "/" + zipName}, "file": {name}}
+		return fetchLimited(client, "https://"+item.Server+"/view_archive.php?"+query.Encode(), rangeZipMemberLimit)
+	}
 }

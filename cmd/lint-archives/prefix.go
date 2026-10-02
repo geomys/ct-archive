@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"golang.org/x/mod/sumdb/tlog"
 )
 
 // Non-IA archives expose metadata and numbered ZIPs directly under a URL prefix.
@@ -15,79 +17,69 @@ func lintPrefix(client *http.Client, e entry) []string {
 		return []string{"Expected a single HTTP(S) URL prefix without a query or fragment"}
 	}
 	baseURL := strings.TrimRight(e.location, "/") + "/"
-	var errors []string
-	info, infoErr := fetchLogInfo(httpFiles(client, baseURL))
-	if infoErr != nil {
-		errors = append(errors, infoErr.Error())
-	} else {
-		if info.LogID == nil || *info.LogID == "" {
-			errors = append(errors, "Missing log_id in log.v3.json")
-		}
-		if info.URL == "" && (info.SubmissionURL == "" || info.MonitoringURL == "") {
-			errors = append(errors, "Missing URLs in log.v3.json: expected either url or both submission_url and monitoring_url")
-		}
+	info, cp, diagnostics := readArchiveMetadata(httpFiles(client, baseURL), e.origin)
+	if len(diagnostics) != 0 {
+		return diagnostics
 	}
-	checkpoint, err := fetchCheckpoint(httpFiles(client, baseURL))
-	if err != nil {
-		// Without a tree size we cannot determine the expected ZIP inventory.
-		return append(errors, err.Error())
-	}
-	if infoErr == nil {
-		originURL := info.SubmissionURL
-		if originURL == "" {
-			originURL = info.URL
-		}
-		if originURL != "" && checkpoint.Origin != originFromURL(originURL) {
-			errors = append(errors, fmt.Sprintf(
-				"checkpoint origin '%s' does not match log.v3.json URL '%s'", checkpoint.Origin, originFromURL(originURL)))
-		}
-	}
-
-	n := zipCount(checkpoint.Size)
-	// Match photocamera-archiver's 000.zip–999.zip limit, and bound the number
-	// of probes even if the unsigned checkpoint advertises an absurd size.
+	n := zipCount(cp.Size)
 	if n > 1000 {
-		return append(errors, fmt.Sprintf("checkpoint implies %d ZIPs; at most 1000 supported", n))
+		return []string{fmt.Sprintf("checkpoint implies %d ZIPs; at most 1000 supported", n)}
 	}
-	var zips []string
+	objects := make(map[string]int64)
 	for i := int64(0); i < n; i++ {
 		name := fmt.Sprintf("%03d.zip", i)
-		zips = append(zips, name)
-		if err := headZip(client, baseURL+name); err != nil {
-			errors = append(errors, fmt.Sprintf("%s: %v", name, err))
+		size, err := headZip(client, baseURL+name)
+		if err != nil {
+			diagnostics = append(diagnostics, fmt.Sprintf("%s: %v", name, err))
 		}
+		objects[name] = size
+	}
+	readers := make(map[int64]fileReader)
+	openZip := func(index int64) (fileReader, error) {
+		if read := readers[index]; read != nil {
+			return read, nil
+		}
+		name := fmt.Sprintf("%03d.zip", index)
+		z, err := openRangeZip(client, baseURL+name)
+		if err != nil {
+			return nil, err
+		}
+		read := smallZipFiles(z)
+		zi, zc, issues := readArchiveMetadata(read, e.origin)
+		issues = append(issues, compareArchiveMetadata(zi, zc, info, cp)...)
+		issues = append(issues, lintZipInventory(z.File, index, cp.Size, e.allowMissingIssuers)...)
+		if len(issues) != 0 {
+			return nil, fmt.Errorf("%s", strings.Join(issues, "; "))
+		}
+		readers[index] = read
+		return read, nil
 	}
 	if n > 0 {
-		// Sample the first ZIP, just as for an IA base item. A server ignoring
-		// Range leaves the standalone-file and HEAD checks in place.
-		read, err := rangeZipFiles(client, baseURL+"000.zip")
-		switch {
-		case err == errRangeUnsupported:
-			// No full-ZIP download fallback.
-		case err != nil:
-			errors = append(errors, fmt.Sprintf("000.zip: %v", err))
-		default:
-			for _, diagnostic := range lintMetadata(read, info, &checkpoint.Size) {
-				errors = append(errors, "000.zip: "+diagnostic)
-			}
+		// A server ignoring Range keeps standalone signature/metadata and HEAD
+		// checks. Never fall back to consuming its full ZIP response.
+		if _, err := openZip(0); err == nil {
+			diagnostics = append(diagnostics, e.checkStage("tiles", func() []string {
+				return lintTileSamples(openZip, tlog.Tree{N: cp.Size, Hash: cp.Hash}, e.allowMissingIssuers)
+			})...)
+		} else if err != errRangeUnsupported {
+			diagnostics = append(diagnostics, fmt.Sprintf("000.zip: %v", err))
 		}
 	}
-	// There is no directory listing: check required ZIPs, not absence of extras.
-	return append(errors, lintTorrent(client, e.torrentURL, zips)...)
+	// Without a directory listing, HEAD cannot establish absence of extra ZIPs.
+	return append(diagnostics, e.checkStage("torrent metadata", func() []string { return lintTorrentObjects(client, e.torrentURL, objects) })...)
 }
 
-func headZip(client *http.Client, url string) error {
-	// Never fall back to a full GET, including when HEAD is unsupported.
+func headZip(client *http.Client, url string) (int64, error) {
 	response, err := client.Head(url)
 	if err != nil {
-		return err
+		return -1, err
 	}
 	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
-		return fmt.Errorf("HEAD returned HTTP %d", response.StatusCode)
+		return -1, fmt.Errorf("HEAD returned HTTP %d", response.StatusCode)
 	}
 	if response.ContentLength == 0 {
-		return fmt.Errorf("ZIP is empty")
+		return 0, fmt.Errorf("ZIP is empty")
 	}
-	return nil
+	return response.ContentLength, nil
 }

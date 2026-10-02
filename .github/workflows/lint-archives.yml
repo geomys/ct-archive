@@ -20,4 +20,4 @@ jobs:
         env:
           # IA's EU download endpoint can stall with ML-KEM on GitHub runners.
           GODEBUG: tlsmlkem=0
-        run: go test -v -count=1 -parallel=8 ./cmd/lint-archives
+        run: go test -v -count=1 -parallel=64 ./cmd/lint-archives

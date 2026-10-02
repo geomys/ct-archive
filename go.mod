@@ -3,13 +3,14 @@ module geomys.org/ct-archive
 go 1.25.4
 
 require (
-	filippo.io/sunlight v0.6.4-0.20251203100209-1d019a3fb1ac
-	filippo.io/torchwood v0.7.0
+	filippo.io/sunlight v0.7.0
+	filippo.io/torchwood v0.8.0
 	github.com/anacrolix/torrent v1.60.0
+	github.com/google/certificate-transparency-go v1.3.2
 	github.com/prometheus/client_golang v1.23.2
 	github.com/schollz/progressbar/v3 v3.18.0
 	golang.org/x/crypto v0.45.0
-	golang.org/x/mod v0.30.0
+	golang.org/x/mod v0.40.0
 	golang.org/x/sync v0.18.0
 	golang.org/x/term v0.37.0
 	golang.org/x/time v0.11.0
@@ -49,7 +50,6 @@ require (
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/google/btree v1.1.3 // indirect
-	github.com/google/certificate-transparency-go v1.3.2 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
