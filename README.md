@@ -74,6 +74,8 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | tuscolo2026h1.sunlight.geomys.org | https://archive.org/details/ct_geomys_tuscolo2026h1 |
 | halloumi2026h1.log.ct.ipng.ch | https://ct.ipng.ch/archive/halloumi2026h1/ | 
 | gouda2026h1.log.ct.ipng.ch | https://ct.ipng.ch/archive/gouda2026h1/ |
+| ct.googleapis.com/logs/solera2018 | https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/solera2018/ | [.torrent](https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2018.torrent) |
+| ct.googleapis.com/logs/solera2019 | https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/solera2019/ | [.torrent](https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2019.torrent) |
 
 
 † *These logs were mistakenly archived without the `issuer/` directory.*
