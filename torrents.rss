@@ -333,5 +333,19 @@
       <enclosure url="https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent" type="application/x-bittorrent" />
       <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent</guid>
     </item>
+    <item>
+      <title>ct.googleapis.com/logs/solera2018</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/solera2018/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/solera2018</description>
+      <enclosure url="https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2018.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2018.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/solera2019</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/solera2019/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/solera2019</description>
+      <enclosure url="https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2019.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2019.torrent</guid>
+    </item>
   </channel>
 </rss>
