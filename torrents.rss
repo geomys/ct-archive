@@ -334,18 +334,151 @@
       <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_geomys_tuscolo2025h2.torrent</guid>
     </item>
     <item>
-      <title>ct.googleapis.com/logs/solera2018</title>
-      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/solera2018/</link>
-      <description>Torrent archive for CT log: ct.googleapis.com/logs/solera2018</description>
-      <enclosure url="https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2018.torrent" type="application/x-bittorrent" />
-      <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2018.torrent</guid>
+      <title>ct.googleapis.com/logs/argon2017</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2017/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2017</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2017/ct_google_argon2017.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2017/ct_google_argon2017.torrent</guid>
     </item>
     <item>
-      <title>ct.googleapis.com/logs/solera2019</title>
-      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/solera2019/</link>
-      <description>Torrent archive for CT log: ct.googleapis.com/logs/solera2019</description>
-      <enclosure url="https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2019.torrent" type="application/x-bittorrent" />
-      <guid isPermaLink="false">https://raw.githubusercontent.com/geomys/ct-archive/refs/heads/main/torrents/ct_google_solera2019.torrent</guid>
+      <title>ct.googleapis.com/logs/argon2018</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2018/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2018</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2018/ct_google_argon2018.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2018/ct_google_argon2018.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/argon2019</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2019/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2019</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2019/ct_google_argon2019.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2019/ct_google_argon2019.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/argon2020</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2020/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2020</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2020/ct_google_argon2020.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2020/ct_google_argon2020.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/argon2021</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2021/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2021</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2021/ct_google_argon2021.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2021/ct_google_argon2021.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/argon2022</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2022/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2022</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2022/ct_google_argon2022.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2022/ct_google_argon2022.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/argon2023</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2023/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/argon2023</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2023/ct_google_argon2023.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/argon2023/ct_google_argon2023.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/us1/argon2024</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2024/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/us1/argon2024</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2024/ct_google_argon2024.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2024/ct_google_argon2024.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/us1/argon2025h1</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2025h1/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/us1/argon2025h1</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2025h1/ct_google_argon2025h1.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2025h1/ct_google_argon2025h1.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/us1/argon2025h2</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2025h2/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/us1/argon2025h2</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2025h2/ct_google_argon2025h2.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2025h2/ct_google_argon2025h2.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/us1/argon2026h1</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2026h1/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/us1/argon2026h1</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2026h1/ct_google_argon2026h1.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/us1/argon2026h1/ct_google_argon2026h1.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/xenon2018</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2018/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/xenon2018</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2018/ct_google_xenon2018.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2018/ct_google_xenon2018.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/xenon2019</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2019/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/xenon2019</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2019/ct_google_xenon2019.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2019/ct_google_xenon2019.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/xenon2020</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2020/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/xenon2020</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2020/ct_google_xenon2020.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2020/ct_google_xenon2020.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/xenon2021</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2021/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/xenon2021</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2021/ct_google_xenon2021.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2021/ct_google_xenon2021.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/xenon2022</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2022/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/xenon2022</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2022/ct_google_xenon2022.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2022/ct_google_xenon2022.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/xenon2023</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2023/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/xenon2023</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2023/ct_google_xenon2023.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/xenon2023/ct_google_xenon2023.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/eu1/xenon2024</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2024/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/eu1/xenon2024</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2024/ct_google_xenon2024.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2024/ct_google_xenon2024.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/eu1/xenon2025h1</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2025h1/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/eu1/xenon2025h1</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2025h1/ct_google_xenon2025h1.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2025h1/ct_google_xenon2025h1.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/eu1/xenon2025h2</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2025h2/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/eu1/xenon2025h2</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2025h2/ct_google_xenon2025h2.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2025h2/ct_google_xenon2025h2.torrent</guid>
+    </item>
+    <item>
+      <title>ct.googleapis.com/logs/eu1/xenon2026h1</title>
+      <link>https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2026h1/</link>
+      <description>Torrent archive for CT log: ct.googleapis.com/logs/eu1/xenon2026h1</description>
+      <enclosure url="https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2026h1/ct_google_xenon2026h1.torrent" type="application/x-bittorrent" />
+      <guid isPermaLink="false">https://storage.googleapis.com/archives.certificate.transparency.goog/ct.googleapis.com/logs/eu1/xenon2026h1/ct_google_xenon2026h1.torrent</guid>
     </item>
   </channel>
 </rss>
