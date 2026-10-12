@@ -10,6 +10,7 @@ logs, as well as tools to archive RFC 6962 and Static CT logs.
 | ct.cloudflare.com/logs/nimbus2022 | https://archive.org/details/ct_cloudflare_nimbus2022 † | [.torrent](https://archive.org/download/ct_cloudflare_nimbus2022/ct_cloudflare_nimbus2022_archive.torrent) |
 | ct.cloudflare.com/logs/nimbus2023 | https://archive.org/details/ct_cloudflare_nimbus2023 † | [.torrent](https://archive.org/download/ct_cloudflare_nimbus2023/ct_cloudflare_nimbus2023_archive.torrent) |
 | ct.cloudflare.com/logs/nimbus2024 | https://archive.org/details/ct_cloudflare_nimbus2024 † | [.torrent](https://archive.org/download/ct_cloudflare_nimbus2024/ct_cloudflare_nimbus2024_archive.torrent) |
+| ct.cloudflare.com/logs/nimbus2025 | https://nimbus2025-archive.ct.cloudflare.com/archive/ |
 | ct1.digicert-ct.com/log | https://archive.org/details/ct_digicert_ct1 † | [.torrent](https://archive.org/download/ct_digicert_ct1/ct_digicert_ct1_archive.torrent) |
 | ct2.digicert-ct.com/log | https://archive.org/details/ct_digicert_ct2 † | [.torrent](https://archive.org/download/ct_digicert_ct2/ct_digicert_ct2_archive.torrent) |
 | yeti2018.ct.digicert.com/log | https://archive.org/details/ct_digicert_yeti2018 † | [.torrent](https://archive.org/download/ct_digicert_yeti2018/ct_digicert_yeti2018_archive.torrent) |
