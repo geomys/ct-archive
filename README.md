@@ -105,6 +105,37 @@ To help seed the torrent files, you can use [this feed](https://raw.githubuserco
 
 A very comprehensive list of CT logs can be found at https://sslmate.com/app/ctlogs.
 
+### Lost Logs
+
+The following logs are no longer available and are not known to be archived.
+If you have a copy of any of them, please consider contributing it.
+
+* ct.cloudflare.com/logs/nimbus2018
+* ct.cloudflare.com/logs/nimbus2019
+* ct.cloudflare.com/logs/nimbus2020
+* ct.cloudflare.com/logs/nimbus2021
+* sabre2025h1.ct.sectigo.com
+* mammoth2025h1.ct.sectigo.com
+* mammoth2024h1b.ct.sectigo.com
+* yeti2024.ct.digicert.com/log
+* nessie2024.ct.digicert.com/log
+* oak.ct.letsencrypt.org/2024h1
+* oak.ct.letsencrypt.org/2024h2
+* ct.trustasia.com/log2020
+* ct2021.trustasia.com/log2021
+* ct.trustasia.com/log2021
+* ct.trustasia.com/log2022
+* ct.trustasia.com/log2023
+* log.certly.io
+* ct.izenpe.com
+* ctlog.wosign.com
+* ct.wosign.com
+* ctlog.api.venafi.com
+* ctserver.cnnic.cn
+* ct.startssl.com
+* www.certificatetransparency.cn/ct
+* alpha.ctlogs.org
+
 ## Using the Archives
 
 [filippo.io/sunlight.Client][] can be used with a `archive+file://` URL to read
